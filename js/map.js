@@ -10,7 +10,7 @@ if (map) {
 
         marker.bindPopup(`
             <div class="popup">
-                <img src="${apartment.img}" width="200" alt="${title}">
+                <img src="${getAssetUrl(apartment.img)}" width="200" alt="${title}">
                 <h3>${title}</h3>
                 <p>${formatPrice(apartment.price, mapLang)}</p>
                 <a href="${apartmentUrl}" class="popup-btn">${detailsText}</a>

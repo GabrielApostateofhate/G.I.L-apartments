@@ -37,7 +37,7 @@ if (apartment) {
     }
 
     if (image) {
-        image.src = apartment.img;
+        image.src = getAssetUrl(apartment.img);
         image.alt = apartmentTitle;
     }
 
@@ -58,16 +58,16 @@ if (apartment) {
     }
 
     if (rentButton) {
-        rentButton.href = `${SITE_CONFIG[pageLang].paths.booking}?id=${apartment.id}`;
+        rentButton.href = `${getPageUrl(SITE_CONFIG[pageLang].paths.booking)}?id=${apartment.id}`;
         rentButton.textContent = apartmentPageText.rent;
     }
 
     thumbImages.forEach((thumb) => {
-        thumb.src = apartment.img;
+        thumb.src = getAssetUrl(apartment.img);
         thumb.alt = apartmentTitle;
         thumb.addEventListener("click", () => {
             if (image) {
-                image.src = apartment.img;
+                image.src = getAssetUrl(apartment.img);
             }
         });
     });

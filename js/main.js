@@ -58,7 +58,7 @@ const createApartmentCard = (apartment) => {
 
     article.innerHTML = `
         <a href="${apartmentUrl}" class="flat_card_anchor" aria-label="${mainPageText.openApartment} ${apartmentTitle}"></a>
-        <img src="${apartment.img}" alt="${apartmentTitle}" class="flat_card_image">
+        <img src="${getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image">
         <div class="flat_card_body">
             <p class="flat_location">${apartmentTitle}</p>
             <div class="flat_card_details">
@@ -99,7 +99,7 @@ const updateHero = (apartment) => {
     }
 
     heroFlatLink.href = getApartmentUrl(apartment.id, lang);
-    heroFlatImage.src = apartment.img;
+    heroFlatImage.src = getAssetUrl(apartment.img);
     heroFlatImage.alt = getApartmentTitle(apartment, lang);
 };
 
