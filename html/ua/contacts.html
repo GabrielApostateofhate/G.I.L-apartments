@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти - G.I.L Apartments</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/contacts.css">
+</head>
+<body data-page="contacts">
+    <div data-site-header></div>
+
+    <main class="page_shell">
+        <h1 class="page_title">Контакти</h1>
+        <p class="page_lead">Напишіть нам у формі нижче або скористайтеся прямими контактами.</p>
+
+        <section class="contacts_layout">
+            <div class="info_grid">
+                <div class="info_item">
+                    <h2>Телефон</h2>
+                    <p>+38 (050) 000 00 00</p>
+                </div>
+                <div class="info_item">
+                    <h2>Email</h2>
+                    <p>gil.apartments@example.com</p>
+                </div>
+                <div class="info_item">
+                    <h2>Адреса</h2>
+                    <p>Ужгород, Закарпатська область</p>
+                </div>
+            </div>
+
+            <div class="page_card">
+                <h2>Написати нам</h2>
+                <form class="site_form" id="contactForm">
+                    <input type="text" placeholder="Ім’я">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Ваше повідомлення"></textarea>
+                    <button type="submit" class="site_button">Надіслати</button>
+                </form>
+                <p class="status_text" id="contactStatus"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/site.js"></script>
+    <script src="/js/contacts.js"></script>
+</body>
+</html>

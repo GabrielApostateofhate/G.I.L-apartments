@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Apartments - Uzhhorod</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body data-page="main">
+    <div data-site-header></div>
+
+    <main class="main_catalog">
+        <aside class="filter_bar" aria-label="Filter">
+            <button class="filter_button" type="button" id="filterToggle" aria-expanded="false" aria-controls="filterPanel">Filter</button>
+        </aside>
+
+        <div class="filter_overlay" id="filterOverlay"></div>
+
+        <section class="filter_panel" id="filterPanel" aria-label="Filter panel">
+            <form class="filter_form" id="filterForm">
+                <div class="filter_group">
+                    <label for="rooms">Rooms</label>
+                    <select id="rooms" name="rooms">
+                        <option value="">All listings</option>
+                        <option value="1">1 room</option>
+                        <option value="2">2 rooms</option>
+                        <option value="3">3 rooms</option>
+                    </select>
+                </div>
+
+                <div class="filter_group">
+                    <label>Price</label>
+                    <div class="filter_range">
+                        <select name="price_from">
+                            <option value="">From</option>
+                            <option value="500">500</option>
+                            <option value="800">800</option>
+                            <option value="1000">1000</option>
+                            <option value="1300">1300</option>
+                            <option value="1500">1500</option>
+                        </select>
+                        <select name="price_to">
+                            <option value="">To</option>
+                            <option value="900">900</option>
+                            <option value="1200">1200</option>
+                            <option value="1500">1500</option>
+                            <option value="1900">1900</option>
+                            <option value="2200">2200</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter_group">
+                    <label>Month</label>
+                    <div class="filter_range filter_range_month">
+                        <select name="month_from">
+                            <option value="">From</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <span class="filter_separator">-</span>
+                        <select name="month_to">
+                            <option value="">To</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter_group">
+                    <label>Beds</label>
+                    <div class="filter_range">
+                        <select name="beds_from">
+                            <option value="">From</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <select name="beds_to">
+                            <option value="">To</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter_group">
+                    <label for="favorite">Favorites</label>
+                    <select id="favorite" name="favorite">
+                        <option value="">All listings</option>
+                        <option value="true">Favorites only</option>
+                    </select>
+                </div>
+
+                <div class="filter_actions">
+                    <button type="button" class="filter_action_button filter_action_clear" id="filterReset">Reset</button>
+                    <button type="submit" class="filter_action_button">Apply</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="hero_flat">
+            <a href="/html/en/appartmentsEN.html?id=1" class="hero_flat_link" id="heroFlatLink">
+                <img src="/images/flats/1.png" alt="Featured apartment" id="heroFlatImage">
+            </a>
+        </section>
+
+        <section class="flats_catalog" aria-label="Apartment list" id="flatsCatalog"></section>
+        <p class="catalog_empty" id="catalogEmpty" hidden>No apartments match your filter.</p>
+    </main>
+
+    <script src="/js/site.js"></script>
+    <script src="/js/appartments.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

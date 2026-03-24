@@ -1,0 +1,15 @@
+.booking_layout{
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+}
+
+.booking_info{
+    align-content: start;
+}
+
+@media (max-width: 900px){
+    .booking_layout{
+        grid-template-columns: 1fr;
+    }
+}
