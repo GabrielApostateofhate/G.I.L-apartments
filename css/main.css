@@ -31,21 +31,46 @@
 }
 
 .filter_button{
+    position: relative;
     border: none;
     background-color: #1c1c1c;
     color: #f5f5f5;
-    padding: 1.3em 1.6em;
+    width: 4rem;
+    height: 3.6rem;
+    padding: 0;
     font: inherit;
-    font-size: 1.05rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border-radius: 0 0.4em 0.4em 0;
+    font-size: 0;
+    border-radius: 0 0.35rem 0.35rem 0;
     cursor: pointer;
     box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
 }
 
 .filter_button:hover{
     background-color: #353535;
+}
+
+.filter_button::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0.9rem;
+    width: 1.45rem;
+    height: 1rem;
+    background: #f2f2f2;
+    transform: translateX(-50%);
+    clip-path: polygon(0 0, 100% 0, 68% 58%, 68% 100%, 32% 100%, 32% 58%);
+}
+
+.filter_button::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 1.86rem;
+    width: 0.36rem;
+    height: 0.6rem;
+    background: #f2f2f2;
+    transform: translateX(-50%);
+    border-radius: 0 0 0.08rem 0.08rem;
 }
 
 .filter_overlay{
@@ -61,14 +86,13 @@
 
 .filter_panel{
     position: fixed;
-    top: 17.5rem;
-    left: 0.75rem;
-    width: 23.5rem;
-    padding: 1.55rem 1.4rem;
-    background: #2a2a2a;
-    border-left: 2px solid #2ca2ff;
-    border-radius: 0 1.4rem 1.4rem 0;
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+    top: 17.3rem;
+    left: 0;
+    width: 21.8rem;
+    padding: 1.3rem 1rem 1.1rem 1.45rem;
+    background: #353535;
+    border-radius: 0 2.3rem 2.3rem 0;
+    box-shadow: 0 22px 44px rgba(0, 0, 0, 0.28);
     z-index: 7;
     transform: translateX(calc(-100% - 1.5rem));
     opacity: 0;
@@ -92,70 +116,75 @@
 
 .filter_form{
     display: grid;
-    gap: 1.2rem;
+    gap: 0.82rem;
 }
 
 .filter_actions{
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.9rem;
-    margin-top: 0.75rem;
+    gap: 0.7rem;
+    margin-top: 0.4rem;
 }
 
 .filter_action_button{
-    min-height: 3.2rem;
+    min-height: 2.65rem;
     border: none;
     border-radius: 0.55rem;
     background: #f2f2f2;
     color: #1c1c1c;
     font: inherit;
-    font-size: 0.98rem;
+    font-size: 0.82rem;
     cursor: pointer;
 }
 
 .filter_action_clear{
-    background: #d9d9d9;
+    background: #cfcfcf;
 }
 
 .filter_group{
     display: grid;
-    gap: 0.65rem;
+    gap: 0.42rem;
 }
 
 .filter_group label{
     color: #f6f7f9;
-    font-size: 0.98rem;
+    font-size: 0.78rem;
     letter-spacing: 0.02em;
 }
 
 .filter_group select{
     width: 100%;
-    min-height: 3.2rem;
+    min-height: 3.25rem;
     border: none;
-    border-radius: 0.6rem;
+    border-radius: 0.55rem;
     background: #f2f2f2;
-    color: #656565;
-    padding: 0 1rem;
+    color: #585858;
+    padding: 0 2.55rem 0 1rem;
     font: inherit;
-    font-size: 0.98rem;
+    font-size: 0.84rem;
     appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #585858 50%),
+        linear-gradient(135deg, #585858 50%, transparent 50%);
+    background-position:
+        calc(100% - 1.6rem) calc(50% - 0.14rem),
+        calc(100% - 1rem) calc(50% - 0.14rem);
+    background-size: 0.58rem 0.58rem, 0.58rem 0.58rem;
+    background-repeat: no-repeat;
 }
 
 .filter_range{
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.8rem;
+    gap: 0.65rem;
 }
 
 .filter_range_month{
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    align-items: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .filter_separator{
-    color: #f6f7f9;
-    font-size: 1.15rem;
-    text-align: center;
+    display: none;
 }
 
 .flats_catalog{
@@ -292,7 +321,7 @@
 
     .filter_panel{
         top: 10.8rem;
-        left: 1rem;
+        left: 0;
     }
 
     .filter_button{
@@ -307,9 +336,10 @@
 @media (max-width: 560px){
     .filter_panel{
         top: 10.2rem;
-        left: 0.6rem;
-        width: calc(100vw - 1.2rem);
-        border-radius: 1rem;
+        left: 0;
+        width: min(21.8rem, calc(100vw - 1rem));
+        padding-left: 1rem;
+        border-radius: 0 1.6rem 1.6rem 0;
     }
 
     .flats_catalog{
