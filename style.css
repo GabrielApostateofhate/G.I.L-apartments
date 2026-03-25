@@ -82,7 +82,7 @@ body{
     height: 100%;
     text-decoration: none;
     border-radius: inherit;
-    font-size: 0.98rem;
+    font-size: 1.08rem;
     line-height: 1;
 }
 
@@ -135,7 +135,7 @@ body{
 .page_shell{
     max-width: 1200px;
     margin: 0 auto;
-    padding: 9rem 1.5rem 3rem;
+    padding: 10.4rem 1.5rem 3rem;
 }
 
 .page_title{
