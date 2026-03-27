@@ -6,8 +6,15 @@ const filterReset = document.getElementById("filterReset");
 const flatsCatalog = document.getElementById("flatsCatalog");
 const catalogEmpty = document.getElementById("catalogEmpty");
 const heroFlatLink = document.getElementById("heroFlatLink");
-const heroFlatImage = document.getElementById("heroFlatImage");
+const heroImageCurrent = document.getElementById("heroFlatImageCurrent");
+const heroImageNext = document.getElementById("heroFlatImageNext");
+const heroImageStage = document.querySelector(".hero_image_stage");
+const heroPriceTag = document.getElementById("heroPriceTag");
 const lang = getCurrentLang();
+let heroCarouselApartments = apartments.slice();
+let heroCarouselIndex = 0;
+let heroCarouselTimer = null;
+let heroIsAnimating = false;
 
 const mainPageText = {
     uk: {
@@ -58,7 +65,7 @@ const createApartmentCard = (apartment) => {
 
     article.innerHTML = `
         <a href="${apartmentUrl}" class="flat_card_anchor" aria-label="${mainPageText.openApartment} ${apartmentTitle}"></a>
-        <img src="${getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image">
+        <img src="${getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image" loading="lazy" decoding="async">
         <div class="flat_card_body">
             <p class="flat_location">${apartmentTitle}</p>
             <div class="flat_card_details">
@@ -94,13 +101,69 @@ const renderCatalog = (catalogApartments) => {
 };
 
 const updateHero = (apartment) => {
-    if (!apartment || !heroFlatImage || !heroFlatLink) {
+    if (!apartment || !heroImageCurrent || !heroFlatLink) {
         return;
     }
 
+    const heroTitle = getApartmentTitle(apartment, lang);
     heroFlatLink.href = getApartmentUrl(apartment.id, lang);
-    heroFlatImage.src = getAssetUrl(apartment.img);
-    heroFlatImage.alt = getApartmentTitle(apartment, lang);
+    heroImageCurrent.src = getAssetUrl(apartment.img);
+    heroImageCurrent.alt = heroTitle;
+
+    if (heroPriceTag) {
+        heroPriceTag.textContent = formatPrice(apartment.price, lang);
+    }
+};
+
+const animateHeroToApartment = (apartment) => {
+    if (!apartment || !heroImageCurrent || !heroImageNext || !heroImageStage || heroIsAnimating) {
+        return;
+    }
+
+    heroIsAnimating = true;
+    const heroTitle = getApartmentTitle(apartment, lang);
+    heroImageNext.src = getAssetUrl(apartment.img);
+    heroImageNext.alt = heroTitle;
+    heroFlatLink.href = getApartmentUrl(apartment.id, lang);
+
+    if (heroPriceTag) {
+        heroPriceTag.textContent = formatPrice(apartment.price, lang);
+    }
+
+    heroImageStage.classList.remove("is-sliding");
+    void heroImageStage.offsetWidth;
+    heroImageStage.classList.add("is-sliding");
+
+    window.setTimeout(() => {
+        heroImageCurrent.src = heroImageNext.src;
+        heroImageCurrent.alt = heroTitle;
+        heroImageNext.alt = "";
+        heroImageStage.classList.remove("is-sliding");
+        heroIsAnimating = false;
+    }, 650);
+};
+
+const stopHeroCarousel = () => {
+    if (heroCarouselTimer) {
+        window.clearInterval(heroCarouselTimer);
+        heroCarouselTimer = null;
+    }
+};
+
+const startHeroCarousel = (carouselApartments) => {
+    stopHeroCarousel();
+    heroCarouselApartments = carouselApartments.length > 0 ? carouselApartments : apartments;
+    heroCarouselIndex = 0;
+    updateHero(heroCarouselApartments[0]);
+
+    if (heroCarouselApartments.length < 2) {
+        return;
+    }
+
+    heroCarouselTimer = window.setInterval(() => {
+        heroCarouselIndex = (heroCarouselIndex + 1) % heroCarouselApartments.length;
+        animateHeroToApartment(heroCarouselApartments[heroCarouselIndex]);
+    }, 3200);
 };
 
 const getNumericValue = (formData, key) => Number(formData.get(key)) || null;
@@ -140,11 +203,11 @@ const apartmentMatchesFilters = (apartment, filters) => {
 const applyFilters = () => {
     const filteredApartments = apartments.filter((apartment) => apartmentMatchesFilters(apartment, getFilters()));
     renderCatalog(filteredApartments);
-    updateHero(filteredApartments[0] || apartments[0]);
+    startHeroCarousel(filteredApartments);
 };
 
 renderCatalog(apartments);
-updateHero(apartments[0]);
+startHeroCarousel(apartments);
 
 if (filterForm) {
     filterForm.addEventListener("submit", (event) => {

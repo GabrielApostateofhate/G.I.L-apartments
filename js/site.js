@@ -49,6 +49,19 @@ const getCurrentLang = () => document.documentElement.lang.startsWith("uk") ? "u
 const getSiteText = () => SITE_CONFIG[getCurrentLang()];
 const getAssetUrl = (relativePath) => buildUrl(relativePath);
 const getPageUrl = (relativePath) => buildUrl(relativePath);
+const getPageUrlWithCurrentParams = (relativePath, allowedParams = []) => {
+    const url = new URL(getPageUrl(relativePath));
+    const currentParams = new URLSearchParams(window.location.search);
+
+    allowedParams.forEach((param) => {
+        const value = currentParams.get(param);
+        if (value) {
+            url.searchParams.set(param, value);
+        }
+    });
+
+    return url.href;
+};
 const getApartmentTitle = (apartment, lang = getCurrentLang()) => apartment.title?.[lang] || apartment.title?.uk || "";
 const getApartmentDescription = (apartment, lang = getCurrentLang()) => apartment.description?.[lang] || apartment.description?.uk || "";
 const getApartmentUrl = (id, lang = getCurrentLang()) => `${getPageUrl(SITE_CONFIG[lang].paths.apartment)}?id=${id}`;
@@ -72,6 +85,7 @@ const formatBeds = (beds, lang = getCurrentLang()) => (
 const buildHeaderMarkup = (page) => {
     const lang = getCurrentLang();
     const site = getSiteText();
+    const preservedParams = page === "apartment" || page === "booking" ? ["id"] : [];
 
     const items = ["main", "map", "booking", "contacts"].map((key) => {
         const className = key === page ? "navigation_current" : "navigation";
@@ -94,8 +108,8 @@ const buildHeaderMarkup = (page) => {
             <div class="lang_switch">
                 <img src="${getAssetUrl("images/site/lang.png")}" alt="${site.alt.lang}" id="lang">
                 <div class="languages">
-                    <a href="${getPageUrl(SITE_CONFIG.en.paths[page] || SITE_CONFIG.en.paths.main)}" class="lang_btn ${lang === "en" ? "current_lang" : ""}">EN</a>
-                    <a href="${getPageUrl(SITE_CONFIG.uk.paths[page] || SITE_CONFIG.uk.paths.main)}" class="lang_btn ${lang === "uk" ? "current_lang" : ""}">UA</a>
+                    <a href="${getPageUrlWithCurrentParams(SITE_CONFIG.en.paths[page] || SITE_CONFIG.en.paths.main, preservedParams)}" class="lang_btn ${lang === "en" ? "current_lang" : ""}">EN</a>
+                    <a href="${getPageUrlWithCurrentParams(SITE_CONFIG.uk.paths[page] || SITE_CONFIG.uk.paths.main, preservedParams)}" class="lang_btn ${lang === "uk" ? "current_lang" : ""}">UA</a>
                 </div>
             </div>
         </header>

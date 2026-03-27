@@ -12,7 +12,12 @@ const apartments = [
             en: "A bright apartment in central Uzhhorod for a comfortable short stay."
         },
         price: 1200,
-        img: "images/flats/1.png",
+        img: "images/flats/1.avif",
+        gallery: [
+            "images/flats/1.avif",
+            "images/flats/2.avif",
+            "images/flats/3.avif"
+        ],
         guests: 2,
         area: "48 м²",
         areaEn: "48 m²",
@@ -35,7 +40,12 @@ const apartments = [
             en: "A cozy apartment near the city center with convenient access."
         },
         price: 900,
-        img: "images/flats/2.png",
+        img: "images/flats/4.avif",
+        gallery: [
+            "images/flats/4.avif",
+            "images/flats/5.avif",
+            "images/flats/6.avif"
+        ],
         guests: 2,
         area: "42 м²",
         areaEn: "42 m²",
@@ -58,7 +68,12 @@ const apartments = [
             en: "A spacious apartment with a modern interior for family or business stays."
         },
         price: 1900,
-        img: "images/flats/3.png",
+        img: "images/flats/2.avif",
+        gallery: [
+            "images/flats/4.avif",
+            "images/flats/5.avif",
+            "images/flats/7.avif"
+        ],
         guests: 4,
         area: "67 м²",
         areaEn: "67 m²",
@@ -81,7 +96,12 @@ const apartments = [
             en: "A clean and budget-friendly short-term rental near major routes."
         },
         price: 500,
-        img: "images/flats/1.png",
+        img: "images/flats/7.avif",
+        gallery: [
+            "images/flats/1.avif",
+            "images/flats/2.avif",
+            "images/flats/5.avif"
+        ],
         guests: 2,
         area: "35 м²",
         areaEn: "35 m²",

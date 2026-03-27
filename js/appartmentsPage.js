@@ -26,6 +26,8 @@ if (apartment) {
     const rentButton = document.querySelector(".rent_btn");
     const thumbImages = document.querySelectorAll(".thumb_image");
     const apartmentTitle = getApartmentTitle(apartment, pageLang);
+    const gallery = apartment.gallery?.length ? apartment.gallery : [apartment.img];
+    const mainImageSrc = getAssetUrl(gallery[0]);
 
     if (title) {
         title.textContent = apartmentTitle;
@@ -37,8 +39,9 @@ if (apartment) {
     }
 
     if (image) {
-        image.src = getAssetUrl(apartment.img);
+        image.src = mainImageSrc;
         image.alt = apartmentTitle;
+        image.decoding = "async";
     }
 
     if (address) {
@@ -62,12 +65,17 @@ if (apartment) {
         rentButton.textContent = apartmentPageText.rent;
     }
 
-    thumbImages.forEach((thumb) => {
-        thumb.src = getAssetUrl(apartment.img);
+    thumbImages.forEach((thumb, index) => {
+        const galleryImage = gallery[index] || gallery[0];
+        const galleryImageSrc = getAssetUrl(galleryImage);
+
+        thumb.src = galleryImageSrc;
         thumb.alt = apartmentTitle;
+        thumb.loading = "lazy";
+        thumb.decoding = "async";
         thumb.addEventListener("click", () => {
             if (image) {
-                image.src = getAssetUrl(apartment.img);
+                image.src = galleryImageSrc;
             }
         });
     });
