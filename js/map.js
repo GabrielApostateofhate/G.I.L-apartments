@@ -1,9 +1,12 @@
 const mapLang = getCurrentLang();
-const map = createLeafletMap("map", [48.61939, 22.28306], 13);
+const map = createLeafletMap("map", [48.61939, 22.28306], 14);
+const apartmentMarkerIcon = createApartmentMarkerIcon();
 
 if (map) {
     apartments.forEach((apartment) => {
-        const marker = L.marker([apartment.lat, apartment.lng]).addTo(map);
+        const marker = L.marker([apartment.lat, apartment.lng], {
+            icon: apartmentMarkerIcon
+        }).addTo(map);
         const apartmentUrl = getApartmentUrl(apartment.id, mapLang);
         const title = getApartmentTitle(apartment, mapLang);
         const detailsText = mapLang === "uk" ? "Детальніше" : "Details";

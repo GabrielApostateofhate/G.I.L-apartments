@@ -12,11 +12,11 @@ const apartments = [
             en: "A bright apartment in central Uzhhorod for a comfortable short stay."
         },
         price: 1200,
-        img: "images/flats/1.avif",
+        img: "https://plus.unsplash.com/premium_photo-1684175656320-5c3f701c082c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         gallery: [
-            "images/flats/1.avif",
-            "images/flats/2.avif",
-            "images/flats/3.avif"
+            "https://plus.unsplash.com/premium_photo-1684175656320-5c3f701c082c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1580237072617-771c3ecc4a24?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dhttps://plus.unsplash.com/premium_photo-1684175656320-5c3f701c082c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1678386645963-3f5b0bdb8dcd?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         guests: 2,
         area: "48 м²",
@@ -40,11 +40,11 @@ const apartments = [
             en: "A cozy apartment near the city center with convenient access."
         },
         price: 900,
-        img: "images/flats/4.avif",
+        img: "https://images.unsplash.com/photo-1633545923722-83621046b261?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZsYXRzfGVufDB8fDB8fHww",
         gallery: [
-            "images/flats/4.avif",
-            "images/flats/5.avif",
-            "images/flats/6.avif"
+            "https://images.unsplash.com/photo-1633545923722-83621046b261?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZsYXRzfGVufDB8fDB8fHww",
+            "https://plus.unsplash.com/premium_photo-1680100256112-2e1231d9d0df?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZsYXRzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1630699034276-0be879da7ebf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fGZsYXRzfGVufDB8fDB8fHww"
         ],
         guests: 2,
         area: "42 м²",
@@ -68,11 +68,11 @@ const apartments = [
             en: "A spacious apartment with a modern interior for family or business stays."
         },
         price: 1900,
-        img: "images/flats/2.avif",
+        img: "https://images.unsplash.com/photo-1741764014072-68953e93cd48?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fGZsYXRzfGVufDB8fDB8fHww",
         gallery: [
-            "images/flats/4.avif",
-            "images/flats/5.avif",
-            "images/flats/7.avif"
+            "https://images.unsplash.com/photo-1741764014072-68953e93cd48?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fGZsYXRzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1669066972075-72b6a5fa88e3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzR8fGZsYXRzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1542855596-45eb2695c74c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fGZsYXRzfGVufDB8fDB8fHww"
         ],
         guests: 4,
         area: "67 м²",
@@ -96,11 +96,11 @@ const apartments = [
             en: "A clean and budget-friendly short-term rental near major routes."
         },
         price: 500,
-        img: "images/flats/7.avif",
+        img: "https://i.pinimg.com/1200x/ea/88/28/ea8828438128fb2a34875569afe8aa96.jpg",
         gallery: [
-            "images/flats/1.avif",
-            "images/flats/2.avif",
-            "images/flats/5.avif"
+            "https://i.pinimg.com/1200x/ea/88/28/ea8828438128fb2a34875569afe8aa96.jpg",
+            "https://i.pinimg.com/1200x/41/c9/fa/41c9fa5a67198a710cfc3a8fdd409b33.jpg",
+            "https://i.pinimg.com/1200x/a5/46/e3/a546e3b64b67b48792e2db1d1c6cec81.jpg"
         ],
         guests: 2,
         area: "35 м²",

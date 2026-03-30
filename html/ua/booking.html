@@ -13,32 +13,107 @@
 
     <main class="page_shell">
         <h1 class="page_title">Бронювання</h1>
-        <p class="page_lead">Залиште заявку, і ми зв’яжемося з вами для підтвердження дат та деталей проживання.</p>
+        <p class="page_lead">Щоб забронювати житло, достатньо перейти в наш Telegram-бот. Там можна швидко обрати квартиру, вказати дати проживання та перейти до підтвердження бронювання.</p>
 
         <section class="booking_layout">
-            <div class="page_card">
-                <h2>Дані для бронювання</h2>
-                <form class="site_form">
-                    <input type="text" placeholder="Ім’я">
-                    <input type="text" placeholder="Прізвище">
-                    <input type="tel" placeholder="+380">
-                    <input type="date">
-                    <input type="date">
-                    <textarea placeholder="Коментар до бронювання"></textarea>
-                    <button type="submit" class="site_button">Надіслати заявку</button>
-                </form>
-            </div>
+            <section class="booking_story page_card">
+                <div class="booking_story_intro">
+                    <p class="booking_story_eyebrow">Telegram-бронювання</p>
+                    <h2>Усе бронювання проходить через одного помічника в Telegram</h2>
+                    <p>Без довгих форм і зайвих кроків. Бот допомагає почати бронювання в кілька повідомлень і провести гостя від вибору квартири до підтвердження.</p>
+                </div>
 
-            <div class="info_grid booking_info">
-                <div class="info_item">
-                    <h2>Підтвердження</h2>
-                    <p>Ми уточнюємо доступність квартири та підтверджуємо заявку вручну.</p>
+                <div class="booking_story_grid">
+                    <article class="booking_step_card">
+                        <span class="booking_step_index">01</span>
+                        <h3>Вибір квартири</h3>
+                        <p>У боті можна переглянути доступні варіанти й одразу перейти до тієї квартири, яка підходить саме вам.</p>
+                    </article>
+
+                    <article class="booking_step_card">
+                        <span class="booking_step_index">02</span>
+                        <h3>Дати проживання</h3>
+                        <p>Ви вказуєте дати заїзду та виїзду, а далі одразу переходите до оформлення бронювання.</p>
+                    </article>
+
+                    <article class="booking_step_card">
+                        <span class="booking_step_index">03</span>
+                        <h3>Швидкий зв'язок</h3>
+                        <p>Бот допомагає швидко передати основну інформацію для бронювання без окремих анкет на сайті.</p>
+                    </article>
+
+                    <article class="booking_step_card">
+                        <span class="booking_step_index">04</span>
+                        <h3>Підтвердження броні</h3>
+                        <p>Після кількох простих кроків ви переходите до підтвердження бронювання й отримуєте зрозумілий маршрут далі.</p>
+                    </article>
+
+                    <article class="booking_step_card">
+                        <span class="booking_step_index">05</span>
+                        <h3>Усе в одному місці</h3>
+                        <p>Замість листувань у різних месенджерах уся основна комунікація про бронювання починається в одному Telegram-діалозі.</p>
+                    </article>
+
+                    <article class="booking_step_card">
+                        <span class="booking_step_index">06</span>
+                        <h3>Зрозумілий старт</h3>
+                        <p>Це найшвидший спосіб почати бронювання, якщо ви вже обрали житло й хочете перейти до деталей без зайвого пошуку контактів.</p>
+                    </article>
                 </div>
-                <div class="info_item">
-                    <h2>Час відповіді</h2>
-                    <p>Зазвичай відповідаємо протягом дня у месенджері або телефоном.</p>
+            </section>
+
+            <aside class="booking_side">
+                <section class="booking_bot_card">
+                    <p class="booking_bot_eyebrow">Telegram booking</p>
+                    <h2>Почати бронювання в боті</h2>
+                    <p class="booking_bot_text">Натисніть і відкрийте <strong>@GIL_Apartments_Bot</strong> у Telegram. Там можна швидко почати бронювання, вибрати квартиру та перейти до наступних кроків без заповнення форми на сайті.</p>
+
+                    <a href="https://t.me/GIL_Apartments_Bot" target="_blank" rel="noopener noreferrer" class="booking_bot_portal" aria-label="Відкрити Telegram-бота GIL Apartments">
+                        <span class="booking_bot_portal_badge">Telegram</span>
+                        <strong class="booking_bot_portal_title">@GIL_Apartments_Bot</strong>
+                        <span class="booking_bot_portal_text">Відкрити діалог і перейти до бронювання</span>
+                        <span class="booking_bot_portal_arrow">Open</span>
+                    </a>
+
+                    <div class="booking_bot_stats">
+                        <div>
+                            <strong>Квартири</strong>
+                            <span>вибір потрібного варіанту</span>
+                        </div>
+                        <div>
+                            <strong>Дати</strong>
+                            <span>швидкий старт бронювання</span>
+                        </div>
+                        <div>
+                            <strong>Telegram</strong>
+                            <span>усе в одному діалозі</span>
+                        </div>
+                    </div>
+
+                    <div class="booking_bot_steps">
+                        <span>Квартира</span>
+                        <span>Дати</span>
+                        <span>Бронювання</span>
+                        <span>Підтвердження</span>
+                    </div>
+
+                    <div class="booking_bot_links">
+                        <a href="https://t.me/GIL_Apartments_Bot" target="_blank" rel="noopener noreferrer" class="booking_bot_button">Перейти в Telegram</a>
+                    </div>
+                    <p class="booking_bot_note">Якщо Telegram вже встановлений на пристрої, перехід одразу відкриє діалог із ботом.</p>
+                </section>
+
+                <div class="info_grid booking_info">
+                    <div class="info_item">
+                        <h2>Просто для гостя</h2>
+                        <p>Не потрібно шукати окремі контакти чи заповнювати довгу форму. Весь старт бронювання зібраний в одному місці.</p>
+                    </div>
+                    <div class="info_item">
+                        <h2>Швидкий перехід</h2>
+                        <p>Один клік відкриває Telegram-бота, де можна одразу почати оформлення без зайвих проміжних кроків.</p>
+                    </div>
                 </div>
-            </div>
+            </aside>
         </section>
     </main>
 

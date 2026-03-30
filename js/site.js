@@ -140,4 +140,18 @@ const createLeafletMap = (elementId, center, zoom = 16) => {
     return map;
 };
 
+const createApartmentMarkerIcon = () => {
+    if (typeof L === "undefined") {
+        return null;
+    }
+
+    return L.divIcon({
+        className: "apartment-marker",
+        html: "<span>🏢</span>",
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [0, -14]
+    });
+};
+
 mountSiteHeader();

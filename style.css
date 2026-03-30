@@ -173,7 +173,7 @@ body{
 
 .info_item h2,
 .page_card h2{
-    margin: 0 0 0.75rem;
+    margin: 0 0 1.8rem;
     font-size: 1.1rem;
 }
 
@@ -224,6 +224,22 @@ body{
 .status_text{
     margin-top: 0.75rem;
     color: #356a38;
+}
+
+.apartment-marker{
+    background: transparent;
+    border: none;
+}
+
+.apartment-marker span{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.4rem;
+    line-height: 1;
+    transform: translate(-0.15rem, -0.15rem);
 }
 
 @media (max-width: 900px){

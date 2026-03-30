@@ -82,7 +82,9 @@ if (apartment) {
 
     const map = createLeafletMap("map", [apartment.lat, apartment.lng], 16);
     if (map) {
-        L.marker([apartment.lat, apartment.lng]).addTo(map);
+        L.marker([apartment.lat, apartment.lng], {
+            icon: createApartmentMarkerIcon()
+        }).addTo(map);
     }
 } else {
     const title = document.getElementById("title");
