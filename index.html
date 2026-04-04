@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <title>Redirect</title>
 <script>
-const lang = navigator.language || navigator.userLanguage;
+const savedLang = window.localStorage.getItem("siteLanguage");
+const lang = savedLang || navigator.language || navigator.userLanguage;
 
 if(lang.startsWith("uk")){
-    window.location.href = "./html/ua/mainUA.html";
+    window.location.href = "./html/main.html";
 }else{
-    window.location.href = "./html/en/mainEN.html";
+    window.location.href = "./html/main.html";
 }
 </script>
 </head>

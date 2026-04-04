@@ -1,100 +1,120 @@
-const apartmentId = new URLSearchParams(window.location.search).get("id");
-const apartment = getApartmentById(apartmentId);
-const pageLang = getCurrentLang();
+const initApartmentPage = () => {
+    const apartmentId = new URLSearchParams(window.location.search).get("id");
+    const apartment = window.getApartmentById(apartmentId);
+    const pageLang = window.getCurrentLang();
 
-const apartmentPageText = {
-    uk: {
-        fallbackTitle: "Квартиру не знайдено",
-        fallbackDescription: "Схоже, що переданий id відсутній у базі apartments.",
-        rent: "Орендувати"
-    },
-    en: {
-        fallbackTitle: "Apartment not found",
-        fallbackDescription: "The provided id is missing from the apartments data.",
-        rent: "Rent"
-    }
-}[pageLang];
+    if (apartment) {
+        const title = document.getElementById("title");
+        const price = document.getElementById("price");
+        const image = document.getElementById("image");
+        const address = document.getElementById("address");
+        const description = document.getElementById("description");
+        const capacity = document.getElementById("capacity");
+        const area = document.getElementById("area");
+        const rentButton = document.querySelector(".rent_btn");
+        const thumbImages = document.querySelectorAll(".thumb_image");
+        const apartmentFeatures = document.getElementById("apartmentFeatures");
+        const apartmentFeaturesBox = document.getElementById("apartmentFeaturesBox");
+        const apartmentTitle = window.getApartmentTitle(apartment, pageLang);
+        const gallery = apartment.gallery?.length ? apartment.gallery : [apartment.img];
+        const mainImageSrc = window.getAssetUrl(gallery[0]);
 
-if (apartment) {
-    const title = document.getElementById("title");
-    const price = document.getElementById("price");
-    const image = document.getElementById("image");
-    const address = document.getElementById("address");
-    const description = document.getElementById("description");
-    const capacity = document.getElementById("capacity");
-    const area = document.getElementById("area");
-    const rentButton = document.querySelector(".rent_btn");
-    const thumbImages = document.querySelectorAll(".thumb_image");
-    const apartmentTitle = getApartmentTitle(apartment, pageLang);
-    const gallery = apartment.gallery?.length ? apartment.gallery : [apartment.img];
-    const mainImageSrc = getAssetUrl(gallery[0]);
+        if (title) {
+            title.textContent = apartmentTitle;
+            window.updateDocumentTitle("pages.apartment.detailTitle", { lng: pageLang, title: apartmentTitle });
+        }
 
-    if (title) {
-        title.textContent = apartmentTitle;
-        document.title = `${apartmentTitle} - G.I.L Apartments`;
-    }
+        if (price) {
+            price.textContent = window.formatPrice(apartment.price, pageLang);
+        }
 
-    if (price) {
-        price.textContent = formatPrice(apartment.price, pageLang);
-    }
+        if (image) {
+            image.src = mainImageSrc;
+            image.alt = apartmentTitle;
+            image.decoding = "async";
+        }
 
-    if (image) {
-        image.src = mainImageSrc;
-        image.alt = apartmentTitle;
-        image.decoding = "async";
-    }
+        if (address) {
+            address.textContent = apartmentTitle;
+        }
 
-    if (address) {
-        address.textContent = apartmentTitle;
-    }
+        if (description) {
+            description.textContent = window.getApartmentDescription(apartment, pageLang);
+        }
 
-    if (description) {
-        description.textContent = getApartmentDescription(apartment, pageLang);
-    }
+        if (capacity) {
+            capacity.textContent = window.formatGuests(apartment.guests, pageLang);
+        }
 
-    if (capacity) {
-        capacity.textContent = formatGuests(apartment.guests, pageLang);
-    }
+        if (area) {
+            area.textContent = window.getApartmentArea(apartment, pageLang);
+        }
 
-    if (area) {
-        area.textContent = pageLang === "uk" ? apartment.area : apartment.areaEn;
-    }
+        if (rentButton) {
+            rentButton.href = `${window.getPageUrl(window.SITE_CONFIG[pageLang].paths.booking)}?id=${apartment.id}`;
+            rentButton.textContent = window.t("common.actions.rent", { lng: pageLang });
+        }
 
-    if (rentButton) {
-        rentButton.href = `${getPageUrl(SITE_CONFIG[pageLang].paths.booking)}?id=${apartment.id}`;
-        rentButton.textContent = apartmentPageText.rent;
-    }
+        if (apartmentFeatures && apartmentFeaturesBox) {
+            const featureKeys = window.getApartmentFeatures(apartment);
 
-    thumbImages.forEach((thumb, index) => {
-        const galleryImage = gallery[index] || gallery[0];
-        const galleryImageSrc = getAssetUrl(galleryImage);
-
-        thumb.src = galleryImageSrc;
-        thumb.alt = apartmentTitle;
-        thumb.loading = "lazy";
-        thumb.decoding = "async";
-        thumb.addEventListener("click", () => {
-            if (image) {
-                image.src = galleryImageSrc;
+            if (featureKeys.length === 0) {
+                apartmentFeaturesBox.hidden = true;
+            } else {
+                apartmentFeatures.innerHTML = "";
+                featureKeys.forEach((featureKey) => {
+                    const item = document.createElement("div");
+                    item.className = "apartment_feature_item";
+                    item.innerHTML = `
+                        <span class="apartment_feature_check">&#10003;</span>
+                        <span>${window.getFeatureLabel(featureKey, pageLang)}</span>
+                    `;
+                    apartmentFeatures.appendChild(item);
+                });
             }
-        });
-    });
+        }
 
-    const map = createLeafletMap("map", [apartment.lat, apartment.lng], 16);
-    if (map) {
-        L.marker([apartment.lat, apartment.lng], {
-            icon: createApartmentMarkerIcon()
-        }).addTo(map);
+        thumbImages.forEach((thumb, index) => {
+            const galleryImage = gallery[index] || gallery[0];
+            const galleryImageSrc = window.getAssetUrl(galleryImage);
+
+            thumb.src = galleryImageSrc;
+            thumb.alt = apartmentTitle;
+            thumb.loading = "lazy";
+            thumb.decoding = "async";
+            thumb.addEventListener("click", () => {
+                if (image) {
+                    image.src = galleryImageSrc;
+                }
+            });
+        });
+
+        const map = window.createLeafletMap("map", [apartment.lat, apartment.lng], 16);
+        if (map) {
+            L.marker([apartment.lat, apartment.lng], {
+                icon: window.createApartmentMarkerIcon()
+            }).addTo(map);
+        }
+
+        return;
     }
-} else {
+
     const title = document.getElementById("title");
     const description = document.getElementById("description");
 
     if (title) {
-        title.textContent = apartmentPageText.fallbackTitle;
+        title.textContent = window.t("pages.apartment.fallbackTitle", { lng: pageLang });
     }
 
     if (description) {
-        description.textContent = apartmentPageText.fallbackDescription;
+        description.textContent = window.t("pages.apartment.fallbackDescription", { lng: pageLang });
     }
-}
+};
+
+Promise.resolve(window.i18nReady).catch(() => undefined).then(() => {
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initApartmentPage, { once: true });
+    } else {
+        initApartmentPage();
+    }
+});
