@@ -27,7 +27,8 @@ const TRANSLATIONS = {
             map: "Map",
             booking: "Booking",
             contacts: "Contacts",
-            apartment: "Apartment"
+            apartment: "Apartment",
+            profile: "Profile"
         },
         features: {
             tv: "TV",
@@ -50,7 +51,7 @@ const TRANSLATIONS = {
         },
         pages: {
             main: {
-                title: "Daily Apartments - Uzhhorod",
+                title: "G.I.L Apartments | Daily Apartments in Uzhhorod",
                 filterBarAria: "Filter",
                 filterToggle: "Filter",
                 filterPanelAria: "Filter panel",
@@ -71,8 +72,8 @@ const TRANSLATIONS = {
                 featuredApartmentAlt: "Featured apartment"
             },
             apartment: {
-                title: "Apartment - G.I.L Apartments",
-                detailTitle: "{{title}} - G.I.L Apartments",
+                title: "G.I.L Apartments | Apartment Details",
+                detailTitle: "{{title}} | G.I.L Apartments",
                 previewAlt: "Apartment preview",
                 imageAlt: "Apartment photo",
                 fallbackTitle: "Apartment not found",
@@ -83,7 +84,7 @@ const TRANSLATIONS = {
                 loading: "Apartment information is loading."
             },
             booking: {
-                title: "Booking - G.I.L Apartments",
+                title: "G.I.L Apartments | Booking in Telegram",
                 heading: "Booking",
                 lead: "To book a stay, it is enough to open our Telegram bot. There you can quickly choose an apartment, enter your stay dates, and move to booking confirmation.",
                 storyEyebrow: "Telegram booking flow",
@@ -123,7 +124,7 @@ const TRANSLATIONS = {
                 info2Text: "One click opens the Telegram bot, where the guest can immediately continue with the booking flow."
             },
             contacts: {
-                title: "Contacts - G.I.L Apartments",
+                title: "G.I.L Apartments | Contacts",
                 heading: "Contacts",
                 lead: "Send us a message below or use the direct contact details.",
                 phone: "Phone",
@@ -137,9 +138,28 @@ const TRANSLATIONS = {
                 messageReady: "Your message is ready to be sent."
             },
             map: {
-                title: "Apartment Map - Uzhhorod",
+                title: "G.I.L Apartments | Apartment Map",
                 heading: "Apartment Map",
                 lead: "Choose an apartment directly on the map and open its details page."
+            },
+            profile: {
+                title: "G.I.L Apartments | Profile",
+                heading: "Profile",
+                lead: "Save your contact details, site language, and preferred currency for browsing apartments.",
+                cardTitle: "Guest profile",
+                nameLabel: "Name",
+                phoneLabel: "Phone",
+                languageLabel: "Language",
+                currencyLabel: "Currency",
+                ratesTitle: "PrivatBank exchange rates",
+                ratesLoading: "Loading current rates...",
+                ratesError: "Failed to load PrivatBank rates right now.",
+                save: "Save profile",
+                saved: "Profile saved.",
+                placeholders: {
+                    name: "Your name",
+                    phone: "+380..."
+                }
             }
         }
     },
@@ -171,7 +191,20 @@ const TRANSLATIONS = {
             map: "Мапа",
             booking: "Бронювання",
             contacts: "Контакти",
-            apartment: "Квартира"
+            apartment: "Квартира",
+            profile: "Профіль"
+        },
+        profile: {
+            title: "Профіль користувача",
+            userName: "Ваше ім'я",
+            userPhone: "Номер телефону",
+            language: "Мова сайту",
+            currency: "Бажана валюта",
+            save: "Зберегти зміни",
+            saved: "Налаштування збережено!",
+            privatRates: "Курси ПриватБанку",
+            loading: "Завантаження курсів...",
+            backToHome: "На головну"
         },
         features: {
             tv: "телевізор",
@@ -194,7 +227,7 @@ const TRANSLATIONS = {
         },
         pages: {
             main: {
-                title: "Квартири подобово - Ужгород",
+                title: "G.I.L Apartments | Подобова оренда квартир в Ужгороді",
                 filterBarAria: "Фільтр",
                 filterToggle: "Фільтр",
                 filterPanelAria: "Панель фільтра",
@@ -215,8 +248,8 @@ const TRANSLATIONS = {
                 featuredApartmentAlt: "Рекомендована квартира"
             },
             apartment: {
-                title: "Квартира - G.I.L Apartments",
-                detailTitle: "{{title}} - G.I.L Apartments",
+                title: "G.I.L Apartments | Деталі апартамента",
+                detailTitle: "{{title}} | G.I.L Apartments",
                 previewAlt: "Мініатюра квартири",
                 imageAlt: "Фото квартири",
                 fallbackTitle: "Квартиру не знайдено",
@@ -227,7 +260,7 @@ const TRANSLATIONS = {
                 loading: "Інформація про квартиру завантажується."
             },
             booking: {
-                title: "Бронювання - G.I.L Apartments",
+                title: "G.I.L Apartments | Бронювання в Telegram",
                 heading: "Бронювання",
                 lead: "Щоб забронювати житло, достатньо перейти в наш Telegram-бот. Там можна швидко обрати квартиру, вказати дати проживання та перейти до підтвердження бронювання.",
                 storyEyebrow: "Telegram-бронювання",
@@ -267,7 +300,7 @@ const TRANSLATIONS = {
                 info2Text: "Один клік відкриває Telegram-бота, де можна одразу почати оформлення без зайвих проміжних кроків."
             },
             contacts: {
-                title: "Контакти - G.I.L Apartments",
+                title: "G.I.L",
                 heading: "Контакти",
                 lead: "Напишіть нам у формі нижче або скористайтеся прямими контактами.",
                 phone: "Телефон",
@@ -281,7 +314,7 @@ const TRANSLATIONS = {
                 messageReady: "Повідомлення готове до відправлення."
             },
             map: {
-                title: "Мапа квартир - Ужгород",
+                title: "G.I.L",
                 heading: "Мапа квартир",
                 lead: "Оберіть квартиру прямо на мапі та відкрийте її сторінку з деталями."
             }

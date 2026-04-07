@@ -10,7 +10,6 @@ const initMainPage = () => {
     const catalogEmpty = document.getElementById("catalogEmpty");
     const heroFlatLink = document.getElementById("heroFlatLink");
     const heroImageCurrent = document.getElementById("heroFlatImageCurrent");
-    const heroImageNext = document.getElementById("heroFlatImageNext");
     const heroImageStage = document.querySelector(".hero_image_stage");
     const heroPriceTag = document.getElementById("heroPriceTag");
     const featureFilters = document.getElementById("featureFilters");
@@ -20,6 +19,15 @@ const initMainPage = () => {
     let heroCarouselIndex = 0;
     let heroCarouselTimer = null;
     let heroIsAnimating = false;
+
+    let heroImageNext = document.getElementById("heroFlatImageNext");
+    if (!heroImageNext && heroImageStage) {
+        heroImageNext = document.createElement("img");
+        heroImageNext.id = "heroFlatImageNext";
+        heroImageNext.className = "hero_flat_image hero_flat_image_next";
+        heroImageNext.alt = "";
+        heroImageStage.appendChild(heroImageNext);
+    }
 
     const getText = (key, options = {}) => window.t(key, { lng: lang, ...options });
 
@@ -293,7 +301,10 @@ const initMainPage = () => {
     }
 };
 
-Promise.resolve(window.i18nReady).catch(() => undefined).then(() => {
+Promise.all([
+    Promise.resolve(window.i18nReady).catch(() => undefined),
+    Promise.resolve(window.apartmentsReady).catch(() => undefined)
+]).then(() => {
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", initMainPage, { once: true });
     } else {

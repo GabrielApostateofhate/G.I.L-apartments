@@ -2,8 +2,21 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бронювання - G.I.L Apartments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Забронювати апартаменти подобово в Ужгороді | G.I.L Apartments</title>
+    <meta name="description" content="Швидке та зручне бронювання апартаментів в Ужгороді через наш Telegram-бот. Оберіть квартиру та дати в кілька кліків.">
+    <meta name="keywords" content="бронювання ужгород, оренда квартир ужгород, телеграм бот оренда, винайняти житло ужгород">
+    <meta name="robots" content="index, follow">
+    
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Бронювання апартаментів в Ужгороді - G.I.L Apartments">
+    <meta property="og:description" content="Усе бронювання проходить через зручного Telegram-бота. Почніть зараз!">
+    <meta property="og:image" content="https://gil-apartments.com.ua/images/logo.png">
+    
+    <link rel="icon" type="image/jpeg" href="../images/logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="../images/logo.jpg">
+    <link rel="apple-touch-icon" href="../images/logo.jpg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/booking.css">
@@ -68,7 +81,7 @@
                     <h2 data-i18n="pages.booking.botTitle">Почати бронювання в боті</h2>
                     <p class="booking_bot_text" data-i18n="[html]pages.booking.botText">Натисніть і відкрийте <strong>@GIL_Apartments_Bot</strong> у Telegram. Там можна швидко почати бронювання, вибрати квартиру та перейти до наступних кроків без заповнення форми на сайті.</p>
 
-                    <a href="https://t.me/GIL_Apartments_Bot" target="_blank" rel="noopener noreferrer" class="booking_bot_portal" data-i18n="[aria-label]pages.booking.botAria">
+                    <a href="https://t.me/GIL_Apartments_Bot" target="_blank" rel="noopener noreferrer" class="booking_bot_portal" id="bookingBotPortal" data-i18n="[aria-label]pages.booking.botAria">
                         <span class="booking_bot_portal_badge">Telegram</span>
                         <strong class="booking_bot_portal_title">@GIL_Apartments_Bot</strong>
                         <span class="booking_bot_portal_text" data-i18n="pages.booking.botPortalText">Відкрити діалог і перейти до бронювання</span>
@@ -98,7 +111,7 @@
                     </div>
 
                     <div class="booking_bot_links">
-                        <a href="https://t.me/GIL_Apartments_Bot" target="_blank" rel="noopener noreferrer" class="booking_bot_button" data-i18n="common.actions.openTelegram">Перейти в Telegram</a>
+                        <a href="https://t.me/GIL_Apartments_Bot" target="_blank" rel="noopener noreferrer" class="booking_bot_button" id="bookingBotButton" data-i18n="common.actions.openTelegram">Перейти в Telegram</a>
                     </div>
                     <p class="booking_bot_note" data-i18n="pages.booking.botNote">Якщо Telegram вже встановлений на пристрої, перехід одразу відкриє діалог із ботом.</p>
                 </section>
@@ -122,5 +135,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
     <script src="../js/i18n.js"></script>
     <script src="../js/site.js"></script>
+    <script src="../js/booking.js"></script>
 </body>
 </html>

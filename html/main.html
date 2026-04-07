@@ -2,11 +2,43 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Квартири подобово - Ужгород</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    
+    <title>G.I.L Apartments - Оренда квартир подобово в Ужгороді</title>
+    <meta name="description" content="Забронюйте комфортні апартаменти в Ужгороді подобово. Сучасний ремонт, центр міста.">
+    <meta name="keywords" content="оренда квартир ужгород, квартири подобово ужгород, житло ужгород">
+    <link rel="canonical" href="https://gil-apartments.com.ua/html/main.html">
+
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="G.I.L Apartments - Комфортне житло подобово в Ужгороді">
+    <meta property="og:description" content="Сучасні апартаменти в центрі Ужгорода. Фото, ціни та онлайн-бронювання.">
+    <meta property="og:image" content="https://gil-apartments.com.ua/images/logo.png">
+
+    
+    <meta name="geo.region" content="UA-21">
+    <meta name="geo.placename" content="Ужгород">
+
+    <link rel="icon" type="image/jpeg" href="../images/logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="../images/logo.jpg">
+    <link rel="apple-touch-icon" href="../images/logo.jpg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/main.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "G.I.L Apartments",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ужгород",
+        "addressCountry": "UA"
+      }
+    }
+    </script>
 </head>
 <body data-page="main" data-title-key="pages.main.title">
     <div data-site-header></div>
@@ -38,82 +70,18 @@
                             <option value="500">500</option>
                             <option value="800">800</option>
                             <option value="1000">1000</option>
-                            <option value="1300">1300</option>
-                            <option value="1500">1500</option>
                         </select>
                         <select name="price_to">
                             <option value="" data-i18n="pages.main.to">До</option>
-                            <option value="900">900</option>
-                            <option value="1200">1200</option>
                             <option value="1500">1500</option>
-                            <option value="1900">1900</option>
-                            <option value="2200">2200</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="filter_group">
-                    <label data-i18n="pages.main.monthLabel">Місяць</label>
-                    <div class="filter_range filter_range_month">
-                        <select name="month_from">
-                            <option value="" data-i18n="pages.main.from">Від</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-                        <span class="filter_separator">-</span>
-                        <select name="month_to">
-                            <option value="" data-i18n="pages.main.to">До</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="filter_group">
-                    <label data-i18n="pages.main.bedsLabel">Кількість спальних місць</label>
-                    <div class="filter_range">
-                        <select name="beds_from">
-                            <option value="" data-i18n="pages.main.from">Від</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                        <select name="beds_to">
-                            <option value="" data-i18n="pages.main.to">До</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
+                            <option value="2000">2000</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="filter_group">
                     <label data-i18n="pages.main.featuresLabel">Параметри</label>
-                    <div class="filter_feature_list" id="featureFilters" data-i18n="[aria-label]pages.main.featuresAria"></div>
+                    <div class="filter_feature_list" id="featureFilters"></div>
                 </div>
 
                 <div class="filter_actions">
@@ -127,8 +95,7 @@
             <a href="./appartments.html?id=111" class="hero_flat_link" id="heroFlatLink">
                 <span class="hero_price_tag" id="heroPriceTag">1500 ₴ / день</span>
                 <span class="hero_image_stage">
-                    <img src="../images/flats/1.avif" alt="Рекомендована квартира" class="hero_flat_image hero_flat_image_current" id="heroFlatImageCurrent">
-                    <img src="../images/flats/1.avif" alt="" class="hero_flat_image hero_flat_image_next" id="heroFlatImageNext">
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1000" alt="Квартира" class="hero_flat_image hero_flat_image_current" id="heroFlatImageCurrent">
                 </span>
             </a>
         </section>

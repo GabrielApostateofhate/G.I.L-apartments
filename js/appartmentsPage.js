@@ -1,3 +1,70 @@
+const createGalleryViewer = (gallery, apartmentTitle, imageElement) => {
+    const overlay = document.createElement("div");
+    overlay.className = "gallery_viewer";
+    overlay.hidden = true;
+    overlay.innerHTML = `
+        <div class="gallery_viewer_backdrop" data-viewer-close></div>
+        <div class="gallery_viewer_dialog" role="dialog" aria-modal="true" aria-label="${apartmentTitle}">
+            <button type="button" class="gallery_viewer_close" aria-label="Close" data-viewer-close>&times;</button>
+            <button type="button" class="gallery_viewer_nav gallery_viewer_prev" aria-label="Previous photo">&#10094;</button>
+            <div class="gallery_viewer_stage">
+                <img class="gallery_viewer_image" src="" alt="${apartmentTitle}">
+            </div>
+            <button type="button" class="gallery_viewer_nav gallery_viewer_next" aria-label="Next photo">&#10095;</button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const viewerImage = overlay.querySelector(".gallery_viewer_image");
+    let currentIndex = 0;
+
+    const render = () => {
+        const src = window.getAssetUrl(gallery[currentIndex]);
+        viewerImage.src = src;
+        if (imageElement) {
+            imageElement.src = src;
+        }
+    };
+
+    const open = (index = 0) => {
+        currentIndex = index;
+        render();
+        overlay.hidden = false;
+        document.body.classList.add("viewer_open");
+    };
+
+    const close = () => {
+        overlay.hidden = true;
+        document.body.classList.remove("viewer_open");
+    };
+
+    const step = (direction) => {
+        currentIndex = (currentIndex + direction + gallery.length) % gallery.length;
+        render();
+    };
+
+    overlay.querySelectorAll("[data-viewer-close]").forEach((node) => {
+        node.addEventListener("click", close);
+    });
+    overlay.querySelector(".gallery_viewer_prev").addEventListener("click", () => step(-1));
+    overlay.querySelector(".gallery_viewer_next").addEventListener("click", () => step(1));
+
+    document.addEventListener("keydown", (event) => {
+        if (overlay.hidden) {
+            return;
+        }
+        if (event.key === "Escape") {
+            close();
+        } else if (event.key === "ArrowLeft") {
+            step(-1);
+        } else if (event.key === "ArrowRight") {
+            step(1);
+        }
+    });
+
+    return { open };
+};
+
 const initApartmentPage = () => {
     const apartmentId = new URLSearchParams(window.location.search).get("id");
     const apartment = window.getApartmentById(apartmentId);
@@ -12,46 +79,54 @@ const initApartmentPage = () => {
         const capacity = document.getElementById("capacity");
         const area = document.getElementById("area");
         const rentButton = document.querySelector(".rent_btn");
-        const thumbImages = document.querySelectorAll(".thumb_image");
         const apartmentFeatures = document.getElementById("apartmentFeatures");
         const apartmentFeaturesBox = document.getElementById("apartmentFeaturesBox");
-        const apartmentTitle = window.getApartmentTitle(apartment, pageLang);
+
+        const apartmentTitle = window.getApartmentTitle(apartment, pageLang) || "Apartment";
+        const apartmentDescription = window.getApartmentDescription(apartment, pageLang) || "-";
         const gallery = apartment.gallery?.length ? apartment.gallery : [apartment.img];
         const mainImageSrc = window.getAssetUrl(gallery[0]);
+        const galleryViewer = createGalleryViewer(gallery, apartmentTitle, image);
 
         if (title) {
             title.textContent = apartmentTitle;
             window.updateDocumentTitle("pages.apartment.detailTitle", { lng: pageLang, title: apartmentTitle });
         }
 
-        if (price) {
-            price.textContent = window.formatPrice(apartment.price, pageLang);
-        }
-
-        if (image) {
-            image.src = mainImageSrc;
-            image.alt = apartmentTitle;
-            image.decoding = "async";
-        }
-
-        if (address) {
-            address.textContent = apartmentTitle;
-        }
-
         if (description) {
-            description.textContent = window.getApartmentDescription(apartment, pageLang);
+            description.textContent = apartmentDescription;
+        }
+
+        if (price) {
+            const priceValue = apartment.price || 0;
+            price.textContent = window.formatPrice(priceValue, pageLang);
         }
 
         if (capacity) {
             capacity.textContent = window.formatGuests(apartment.guests, pageLang);
         }
 
+        const roomsEl = document.getElementById("rooms");
+        if (roomsEl) {
+            roomsEl.textContent = window.formatRooms(apartment.rooms, pageLang);
+        }
+
+        const bedsEl = document.getElementById("beds");
+        if (bedsEl) {
+            bedsEl.textContent = window.formatBeds(apartment.beds, pageLang);
+        }
+
         if (area) {
             area.textContent = window.getApartmentArea(apartment, pageLang);
         }
 
+        if (address) {
+            address.textContent = apartment.address || "";
+        }
+
         if (rentButton) {
-            rentButton.href = `${window.getPageUrl(window.SITE_CONFIG[pageLang].paths.booking)}?id=${apartment.id}`;
+            const botUsername = "GIL_Apartments_Bot";
+            window.attachTelegramOpenBehavior?.(rentButton, botUsername, `book_${apartment.id || apartment._id}`);
             rentButton.textContent = window.t("common.actions.rent", { lng: pageLang });
         }
 
@@ -74,26 +149,55 @@ const initApartmentPage = () => {
             }
         }
 
-        thumbImages.forEach((thumb, index) => {
-            const galleryImage = gallery[index] || gallery[0];
-            const galleryImageSrc = window.getAssetUrl(galleryImage);
+        if (image) {
+            image.src = mainImageSrc;
+            image.alt = apartmentTitle;
+            image.addEventListener("click", () => galleryViewer.open(0));
+        }
 
-            thumb.src = galleryImageSrc;
-            thumb.alt = apartmentTitle;
-            thumb.loading = "lazy";
-            thumb.decoding = "async";
-            thumb.addEventListener("click", () => {
-                if (image) {
-                    image.src = galleryImageSrc;
-                }
+        const thumbsContainer = document.querySelector(".thumbs");
+        if (thumbsContainer) {
+            thumbsContainer.innerHTML = "";
+            const visibleGallery = gallery.length > 4 ? gallery.slice(0, 3) : gallery;
+
+            visibleGallery.forEach((galleryImage, index) => {
+                const img = document.createElement("img");
+                const src = window.getAssetUrl(galleryImage);
+                img.src = src;
+                img.alt = apartmentTitle;
+                img.className = "thumb_image";
+                img.loading = "lazy";
+                img.addEventListener("click", () => {
+                    if (image) {
+                        image.src = src;
+                    }
+                    galleryViewer.open(index);
+                });
+                thumbsContainer.appendChild(img);
             });
-        });
+
+            if (gallery.length > 4) {
+                const moreButton = document.createElement("button");
+                moreButton.type = "button";
+                moreButton.className = "thumb_more";
+                moreButton.textContent = `+${gallery.length - 3}`;
+                moreButton.addEventListener("click", () => galleryViewer.open(3));
+                thumbsContainer.appendChild(moreButton);
+            }
+        }
 
         const map = window.createLeafletMap("map", [apartment.lat, apartment.lng], 16);
         if (map) {
-            L.marker([apartment.lat, apartment.lng], {
+            const marker = L.marker([apartment.lat, apartment.lng], {
                 icon: window.createApartmentMarkerIcon()
             }).addTo(map);
+
+            marker.bindPopup(window.buildApartmentMapPopup(apartment, pageLang, {
+                includeDetails: false,
+                imageSrc: mainImageSrc,
+                title: apartmentTitle
+            }));
+            marker.openPopup();
         }
 
         return;
@@ -111,7 +215,10 @@ const initApartmentPage = () => {
     }
 };
 
-Promise.resolve(window.i18nReady).catch(() => undefined).then(() => {
+Promise.all([
+    Promise.resolve(window.i18nReady).catch(() => undefined),
+    Promise.resolve(window.apartmentsReady).catch(() => undefined)
+]).then(() => {
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", initApartmentPage, { once: true });
     } else {
