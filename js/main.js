@@ -12,6 +12,7 @@ const initMainPage = () => {
     const heroImageCurrent = document.getElementById("heroFlatImageCurrent");
     const heroImageStage = document.querySelector(".hero_image_stage");
     const heroPriceTag = document.getElementById("heroPriceTag");
+    const heroAddressTag = document.getElementById("heroAddressTag");
     const featureFilters = document.getElementById("featureFilters");
     const priceRangeRoot = filterForm ? filterForm.querySelector(".filter_range") : null;
     const lang = window.getCurrentLang ? window.getCurrentLang() : "en";
@@ -229,21 +230,12 @@ const initMainPage = () => {
                 iconClassName: "flat_detail_icon",
                 labelClassName: "flat_detail_label"
             }));
-        const fallbackDetails = [
-            window.buildInfoMarkup(window.formatRooms(apartment.rooms, lang), "fas fa-door-open", {
-                iconClassName: "flat_detail_icon",
-                labelClassName: "flat_detail_label"
-            }),
-            window.buildInfoMarkup(window.formatBeds(apartment.beds, lang), "fas fa-bed", {
-                iconClassName: "flat_detail_icon",
-                labelClassName: "flat_detail_label"
-            })
-        ].filter(Boolean);
-        const visibleDetails = apartmentDetails.length > 0 ? apartmentDetails : fallbackDetails;
+        const visibleDetails = apartmentDetails;
 
         article.innerHTML = `
-            <a href="${apartmentUrl}" class="flat_card_anchor" aria-label="${getText("common.actions.open")} ${apartmentTitle}"></a>
-            <img src="${window.getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image" loading="lazy" decoding="async">
+            <a href="${apartmentUrl}" class="flat_card_media" aria-label="${getText("common.actions.open")} ${apartmentTitle}">
+                <img src="${window.getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image" loading="lazy" decoding="async">
+            </a>
             <div class="flat_card_body">
                 <p class="flat_location">${apartmentTitle}</p>
                 <div class="flat_card_details">
@@ -292,6 +284,12 @@ const initMainPage = () => {
         if (heroPriceTag) {
             heroPriceTag.textContent = window.formatPrice(apartment.price, lang);
         }
+
+        if (heroAddressTag) {
+            heroAddressTag.textContent = window.getApartmentAddress
+                ? window.getApartmentAddress(apartment, lang)
+                : heroTitle;
+        }
     };
 
     const animateHeroToApartment = (apartment) => {
@@ -308,6 +306,12 @@ const initMainPage = () => {
 
         if (heroPriceTag) {
             heroPriceTag.textContent = window.formatPrice(apartment.price, lang);
+        }
+
+        if (heroAddressTag) {
+            heroAddressTag.textContent = window.getApartmentAddress
+                ? window.getApartmentAddress(apartment, lang)
+                : heroTitle;
         }
 
         heroImageStage.classList.remove("is-sliding");

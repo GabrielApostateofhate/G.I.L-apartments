@@ -118,12 +118,13 @@ const STATIC_COPY = {
             navTitle: "Навігація",
             socialTitle: "Соцмережі",
             instagram: "Instagram",
+            facebook: "Facebook",
             telegram: "Telegram",
             AboutUs: "Про нас",
             phoneValue: "+38 (050) 000 00 00",
             emailValue: "gil.apartments@example.com",
             copyright: "© 2026 G.I.L Apartments. Усі права захищено.",
-            madeBy: "Сайт створено даунами."
+            madeBy: "Сайт створено Глєбом та Кирилом - веброзробниками з Ужгорода."
         },
         routeText: "Побудувати маршрут",
         defaultTitle: "G.I.L Apartments | Подобова оренда квартир в Ужгороді",
@@ -144,12 +145,13 @@ const STATIC_COPY = {
             navTitle: "Navigation",
             socialTitle: "Social",
             instagram: "Instagram",
+            facebook: "Facebook",
             telegram: "Telegram",
             AboutUs: "About Us",
             phoneValue: "+38 (050) 000 00 00",
             emailValue: "gil.apartments@example.com",
             copyright: "© 2026 G.I.L Apartments. All rights reserved.",
-            madeBy: "Website created by Gleb, a web developer from Uzhhorod."
+            madeBy: "Website created by Gleb and Kirill - web developers from Uzhhorod."
         },
         routeText: "Build route",
         defaultTitle: "G.I.L Apartments | Daily apartment rentals in Uzhhorod",
@@ -176,6 +178,41 @@ const getStaticCopy = (lang = getCurrentLang()) => NORMALIZED_STATIC_COPY[lang] 
 const getAssetUrl = (relativePath) => buildUrl(relativePath);
 const getPageUrl = (relativePath) => buildUrl(relativePath);
 
+const normalizeApartmentAddress = (value, lang = getCurrentLang()) => {
+    if (typeof value !== "string") {
+        return "";
+    }
+
+    const compact = value
+        .replace(/\s+/g, " ")
+        .replace(/\s*,\s*/g, " ")
+        .trim();
+
+    if (!compact) {
+        return "";
+    }
+
+    if (lang !== "uk") {
+        return compact;
+    }
+
+    let normalized = compact
+        .replace(/\s+з\s+.+$/i, "")
+        .replace(/\s*\/\s*/g, "/")
+        .replace(/^(вул|ул)\.?\s*/i, "вул. ")
+        .replace(/^(проспект|просп)\.?\s*/i, "Проспект ")
+        .replace(/^(пл|площа)\.?\s*/i, "пл. ")
+        .replace(/([А-ЯІЇЄҐA-Z])\.(?=[А-ЯІЇЄҐA-Z])/g, "$1. ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    normalized = normalized.replace(/^вул\.\s*/i, "вул. ");
+    normalized = normalized.replace(/^пл\.\s*/i, "пл. ");
+    normalized = normalized.replace(/^Проспект\s*/i, "Проспект ");
+
+    return normalized;
+};
+
 const getPageUrlWithCurrentParams = (relativePath, allowedParams = []) => {
     const url = new URL(getPageUrl(relativePath));
     const currentParams = new URLSearchParams(window.location.search);
@@ -191,15 +228,29 @@ const getPageUrlWithCurrentParams = (relativePath, allowedParams = []) => {
 };
 
 const getApartmentTitle = (apartment, lang = getCurrentLang()) => {
+    const normalizedAddress = normalizeApartmentAddress(
+        apartment?.address || apartment?.title?.uk || apartment?.title?.en || apartment?.title || "",
+        lang
+    );
+
+    if (lang === "uk" && normalizedAddress) {
+        return normalizedAddress;
+    }
+
     if (!apartment?.title) {
-        return "";
+        return normalizedAddress;
     }
 
     if (typeof apartment.title === "string") {
-        return apartment.title;
+        return lang === "uk" ? normalizeApartmentAddress(apartment.title, lang) || apartment.title : apartment.title;
     }
 
-    return apartment.title[lang] || apartment.title.uk || apartment.title.en || "";
+    return apartment.title[lang] || apartment.title.uk || apartment.title.en || normalizedAddress || "";
+};
+
+const getApartmentAddress = (apartment, lang = getCurrentLang()) => {
+    const source = apartment?.address || apartment?.title?.uk || apartment?.title?.en || apartment?.title || "";
+    return normalizeApartmentAddress(source, lang) || source;
 };
 
 const getApartmentDescription = (apartment, lang = getCurrentLang()) => {
@@ -237,9 +288,9 @@ const formatBeds = (beds, lang = getCurrentLang()) =>
     translateKey("common.beds", { lng: lang, count: beds });
 
 const APARTMENT_FEATURE_DEFINITIONS = [
-    { key: "microwave", icon: "🍲" },
+    { key: "microwave", icon: "" },
     { key: "air_conditioner", iconClass: "fas fa-snowflake" },
-    { key: "near_supermarket", iconClass: "fas fa-store" },
+    { key: "near_supermarket", iconClass:"fas fa-store" },
     { key: "smart_tv", iconClass: "fas fa-tv" },
     { key: "balcony", iconClass: "fas fa-door-open" },
     { key: "gas_hob", iconClass: "fas fa-fire" },
@@ -383,9 +434,10 @@ const buildFooterMarkup = () => {
                 </div>
                 <div class="footer__section">
                     <h3 class="footer__title">${copy.socialTitle}</h3>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.instagram, "fab fa-instagram", { iconClassName: "footer__icon" })}</a>
+                    <a href="https://www.instagram.com/kvartiry_posutochno_uzhgorod?igsh=cXA0dHdmbWFrajQ0&utm_source=qr" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.instagram, "fab fa-instagram", { iconClassName: "footer__icon" })}</a>
+                    <a href="https://www.facebook.com/GILapartments?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.facebook, "fab fa-facebook-f", { iconClassName: "footer__icon" })}</a>
                     <a href="https://t.me/GIL_Apartments_Bot" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.telegram, "fab fa-telegram-plane", { iconClassName: "footer__icon" })}</a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.AboutUs, "fas fa-circle-info", { iconClassName: "footer__icon" })}</a>
+                    <a href="#" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.AboutUs, "fas fa-info-circle", { iconClassName: "footer__icon" })}</a>
                 </div>
             </div>
             <div class="footer__bottom">
@@ -510,7 +562,7 @@ const buildApartmentMapPopup = (apartment, lang = getCurrentLang(), options = {}
         : "";
 
     return `
-        <div class="popup">
+        <div class="popup${includeDetails ? "" : " popup--single-action"}">
             <div class="popup__media">
                 <img src="${imageSrc}" width="200" alt="${title}">
             </div>
@@ -602,7 +654,9 @@ Object.assign(window, {
     getAssetUrl,
     getPageUrl,
     getPageUrlWithCurrentParams,
+    normalizeApartmentAddress,
     getApartmentTitle,
+    getApartmentAddress,
     getApartmentDescription,
     getApartmentUrl,
     formatPrice,

@@ -10,20 +10,22 @@
 }
 
 .leaflet-popup-content .popup{
-    min-width: 13rem;
-    max-width: 13rem;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
     color: var(--text-main);
 }
 
 .leaflet-popup-content .popup__media{
     margin-bottom: 0.75rem;
+    width: 100%;
 }
 
 .leaflet-popup-content .popup img{
     display: block;
     width: 100%;
-    max-width: none;
-    margin: 0;
+    max-width: 100%;
+    margin: 0 auto;
     border-radius: 0.8rem;
     aspect-ratio: 4 / 3;
     object-fit: cover;
@@ -33,6 +35,8 @@
 .leaflet-popup-content .popup__content{
     display: grid;
     gap: 0.5rem;
+    justify-items: center;
+    text-align: center;
 }
 
 .leaflet-popup-content .popup__title{
@@ -40,7 +44,7 @@
     font-size: 0.88rem;
     line-height: 1.25;
     font-weight: 600;
-    text-align: left;
+    text-align: center;
 }
 
 .leaflet-popup-content .popup__price{
@@ -48,22 +52,25 @@
     color: rgba(43, 43, 43, 0.78);
     font-size: 0.82rem;
     font-weight: 600;
-    text-align: left;
+    text-align: center;
 }
 
 .leaflet-popup-content .popup__actions{
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.45rem;
-    width: 18em;
+    width: 100%;
+    justify-items: stretch;
 }
 
 .leaflet-popup-content .popup-btn{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 2.2rem;
-    padding: 0.45rem 0.55rem;
+    min-height: 3.2rem;
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    box-sizing: border-box;
     border-radius: 0.65rem;
     border: 0.0625rem solid rgba(200, 155, 109, 0.45);
     background: var(--surface-muted) !important;
@@ -87,9 +94,10 @@
     background: #ead8c8 !important;
     color: #3f2a24 !important;
     border-color: rgba(74, 52, 48, 0.2);
-    width: 100%;
-    align-items: center;
-    text-align: center;
+}
+
+.leaflet-popup-content .popup--single-action .popup__actions{
+    grid-template-columns: minmax(0, 1fr);
 }
 
 .leaflet-popup-content .popup-btn_secondary:hover{
@@ -108,7 +116,7 @@
 .leaflet-popup-content{
     margin: 0;
     padding: 0.75rem;
-    width: 14.3rem !important;
+    width: 17rem !important;
 }
 
 .leaflet-popup-tip{
@@ -135,12 +143,11 @@
     }
 
     .leaflet-popup-content .popup{
-        min-width: 12.2rem;
-        max-width: 12.2rem;
+        width: 100%;
     }
 
     .leaflet-popup-content{
-        width: min(13.3rem, calc(100vw - 5rem)) !important;
+        width: min(15.5rem, calc(100vw - 5rem)) !important;
     }
 
     .leaflet-popup-content .popup__actions{

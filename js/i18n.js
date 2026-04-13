@@ -8,8 +8,8 @@ const TRANSLATIONS = {
                 uk: "UA"
             },
             pricePerDay: "{{price}} UAH / day",
-            rooms: "🚪‎ ‎ {{count}} rooms",
-            beds: "🛏️‎ {{count}} beds",
+            rooms: "{{count}} rooms",
+            beds: "{{count}} beds",
             notSpecified: "Not specified",
             actions: {
                 open: "Open",
@@ -144,8 +144,8 @@ const TRANSLATIONS = {
                 uk: "UA"
             },
             pricePerDay: "{{price}} ₴ / день",
-            rooms: "🚪‎‎ ‎  {{count}} кімн.",
-            beds: "🛏️‎  {{count}} сп. місця",
+            rooms: "{{count}} кімн.",
+            beds: "{{count}} сп. місця",
             notSpecified: "Не вказано",
             actions: {
                 open: "Відкрити",

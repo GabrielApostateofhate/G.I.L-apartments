@@ -58,8 +58,8 @@
       "air_conditioner",
       "near_supermarket",
       
-      "smart_tv",
-      "hob"
+      "smart_tv"
+      
     ],
     "floor": 4,
     "gallery": [
@@ -430,8 +430,8 @@
       "air_conditioner",
       "near_supermarket",
       
-      "smart_tv",
-      "hob"
+      "smart_tv"
+      
     ],
     "floor": 4,
     "gallery": [
@@ -523,9 +523,9 @@
       
       "air_conditioner",
       
-      "smart_tv",
+      "smart_tv"
       
-      "internet"
+      
     ],
     "floor": 2,
     "gallery": [
@@ -575,7 +575,8 @@
       
       
       "smart_tv",
-      "hob"
+      "electro_hob"
+      
     ],
     "floor": 1,
     "gallery": [
@@ -1128,8 +1129,8 @@
       "air_conditioner",
       
       "smart_tv",
-      "balcony",
-      "hob"
+      "balcony"
+      
     ],
     "floor": 2,
     "gallery": [
@@ -1222,8 +1223,8 @@
       "air_conditioner",
       "near_supermarket",
       
-      "smart_tv",
-      "internet"
+      "smart_tv"
+      
     ],
     "floor": 2,
     "gallery": [
@@ -1317,7 +1318,8 @@
       
       
       
-      "near_supermarket"
+      "near_supermarket",
+      "electro_hob"
       
       
       
@@ -1370,8 +1372,8 @@
       "air_conditioner",
       
       "smart_tv",
-      "balcony",
-      "hob"
+      "balcony"
+      
     ],
     "floor": 3,
     "gallery": [
@@ -1508,7 +1510,8 @@
       "near_supermarket",
       
       
-      "intercom"
+      "intercom",
+      "electro_hob"
       
     ],
     "floor": 6,
@@ -1693,8 +1696,8 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/168/",
     "title": {
-      "uk": "Володимирська 90",
-      "en": "Volodymyrska 90"
+      "uk": "вул. Володимирська 90",
+      "en": "St. Volodymyrska 90"
     }
   },
   {

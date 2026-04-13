@@ -120,7 +120,9 @@ const initApartmentPage = () => {
 
 
         if (address) {
-            address.textContent = apartment.address || "";
+            address.textContent = window.getApartmentAddress
+                ? window.getApartmentAddress(apartment, pageLang)
+                : (apartment.address || "");
         }
 
         if (rentButton) {

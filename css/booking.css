@@ -158,16 +158,19 @@
     font-size: 0.76rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    margin-left: 10em;
 }
 
 .booking_bot_portal_title{
     font-size: 1.28rem;
     line-height: 1.2;
+    margin-left: 3em;
 }
 
 .booking_bot_portal_text{
     color: rgba(255, 255, 255, 0.78);
     line-height: 1.55;
+    margin-left: 1em;
 }
 
 .booking_bot_portal_arrow{
