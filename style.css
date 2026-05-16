@@ -1,16 +1,37 @@
 :root{
-    --page-bg: #e6b89c;
-    --surface: #F4F1EE;
-    --surface-muted: #7B3F00;
-    --accent: #C89B6D;
-    --text-main: #2B2B2B;
-    --text-on-dark: #FFFFFF;
-    --border-soft: rgba(0, 0, 0, 0.1);
-    --shadow-soft: 0 0.625em 1.5em rgba(0, 0, 0, 0.07);
+    --page-bg: #EEE3D6;
+    --surface: #F7EFE6;
+    --surface-rgb: 247, 239, 230;
+    --surface-tint: #E3D1C0;
+    --surface-tint-hover: #D5BEA9;
+
+    --surface-muted: #3A2418;
+    --surface-muted-2: #523426;
+    --surface-muted-3: #6F4A36;
+    --surface-muted-rgb: 58, 36, 24;
+
+    --accent: #8C5A3C;
+    --accent-hover: #72452B;
+    --accent-soft: rgba(140, 90, 60, 0.2);
+    --accent-track: #D9C0AC;
+    --accent-border: rgba(140, 90, 60, 0.34);
+
+    --text-main: #26170F;
+    --ink-rgb: 38, 23, 15;
+    --text-muted: rgba(38, 23, 15, 0.72);
+    --text-on-dark: #FFF6EE;
+    --text-on-dark-rgb: 255, 246, 238;
+
+    --success: #6C7450;
+
+    --border-soft: rgba(38, 23, 15, 0.14);
+    --border-strong: rgba(38, 23, 15, 0.24);
+    --shadow-soft: 0 0.75em 2em rgba(38, 23, 15, 0.12);
+    --focus-ring: 0 0 0 0.18rem rgba(140, 90, 60, 0.24);
 }
 
 ::-webkit-scrollbar {
-  width: 0;
+    width: 0;
 }
 body{
     margin: 0;
@@ -83,7 +104,7 @@ body{
 
 .navigation_current{
     background-color: var(--accent);
-    border-color: rgba(200, 155, 109, 0.55);
+    border-color: var(--border-strong);
 }
 
 .navigation{
@@ -112,13 +133,13 @@ body{
 
 .navigation:hover{
     transform: translateY(-0.12rem);
-    border-color: rgba(200, 155, 109, 0.8);
+    border-color: var(--border-strong);
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
 }
 
 .navigation a:hover{
-    background: rgba(200, 155, 109, 0.4);
-    color: #6a3400;
+    background: var(--accent-soft);
+    color: var(--text-main);
 }
 
 .navigation_current a{
@@ -173,17 +194,20 @@ body{
 
 .page_lead{
     margin-bottom: 1em;
-    color: rgba(43, 43, 43, 0.78);
-    background: #ead7c5;
+    color: var(--text-muted);
+    background: var(--surface-tint);
     padding: 1rem;
     line-height: 1.7;
+    font-weight: 700;
     border-radius: 1rem;
     box-shadow: var(--shadow-soft);
     width: 44em;
+    align-items: center;
+    text-align: center;
 }
 
 .booking_story{
-    background: #ead7c5;
+    background: var(--surface-tint);
     border-radius: 1rem;
     padding: 1.5rem;
     box-shadow: var(--shadow-soft);
@@ -191,7 +215,7 @@ body{
 }
 
 .contacts_links_card{
-    background: #ead7c5;
+    background: var(--surface-tint);
     border-radius: 1rem;
     padding: 1.5rem;
     box-shadow: var(--shadow-soft);
@@ -244,7 +268,7 @@ body{
 .footer__text {
     margin: 0.7rem 0;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(var(--text-on-dark-rgb), 0.92);
 }
 
 .footer__contact {
@@ -265,7 +289,7 @@ body{
     display: flex;
     align-items: center;
     gap: 0.65rem;
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(var(--text-on-dark-rgb), 0.92);
     text-decoration: none;
     margin: 0.8rem 0;
     transition: color 0.25s ease, transform 0.25s ease;
@@ -286,7 +310,7 @@ body{
 
 .footer__bottom {
     text-align: center;
-    border-top: 1px solid rgba(243, 233, 220, 0.15);
+    border-top: 1px solid rgba(var(--text-on-dark-rgb), 0.12);
     padding-top: 2rem;
     margin-top: 3rem;
     max-width: 1200px;
@@ -299,7 +323,7 @@ body{
 .footer__copyright {
     margin: 0.55rem 0;
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.76);
+    color: rgba(var(--text-on-dark-rgb), 0.76);
 }
 
 .info_grid{
@@ -309,7 +333,7 @@ body{
 }
 
 .info_item{
-    background: #ead7c5;
+    background: var(--surface-tint);
     border-radius: 1rem;
     padding: 1.25rem;
     box-shadow: var(--shadow-soft);
@@ -367,7 +391,7 @@ body{
 
 .status_text{
     margin-top: 0.75rem;
-    color: #356a38;
+    color: var(--success);
 }
 
 .apartment-marker{
