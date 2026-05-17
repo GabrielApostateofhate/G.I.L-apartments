@@ -35,9 +35,9 @@
     <meta name="geo.placename" content="Ужгород">
     <meta name="geo.position" content="48.6208;22.2879">
     <meta name="ICBM" content="48.6208, 22.2879">
-    <link rel="icon" type="image/jpeg" href="../images/logo.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="../images/logo.jpg">
-    <link rel="apple-touch-icon" href="../images/logo.jpg">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="shortcut icon" type="image/png" href="../images/logo.png">
+    <link rel="apple-touch-icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/contacts.css">
@@ -70,9 +70,24 @@
 
         <section class="contacts_layout">
             <div class="info_grid">
-                <div class="info_item">
+                <div class="info_item" id="phoneInfoItem">
                     <h2 data-i18n="pages.contacts.phone">Телефон</h2>
-                    <p class="contact_inline"><i class="fas fa-phone-alt" aria-hidden="true"></i><a href="tel:+380500000000">+38 (050) 000 00 00</a></p>
+                    <button type="button" class="phone_display_button" id="phoneTrigger">
+                        <i class="fas fa-phone-alt"></i>
+                        <span data-i18n="pages.contacts.showPhones">Показати всі номери</span>
+                    </button>
+                    
+                    <div class="phone_popup" id="phonePopup">
+                        <div class="phone_popup_content">
+                            <div class="phone_popup_header">
+                                <h3 data-i18n="pages.contacts.phone">Телефон</h3>
+                                <button type="button" class="phone_popup_close" id="phonePopupClose">&times;</button>
+                            </div>
+                            <div class="phone_list" id="phoneList">
+                                <!-- Phones will be injected by JS -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="info_item">
                     <h2 data-i18n="pages.contacts.email">Email</h2>
@@ -90,7 +105,7 @@
                     <a href="https://t.me/GIL_Apartments_Bot" class="contacts_link_button" id="contactsBotLink"><i class="fab fa-telegram-plane" aria-hidden="true"></i><span>Telegram Bot</span></a>
                     <a href="https://www.instagram.com/kvartiry_posutochno_uzhgorod?igsh=cXA0dHdmbWFrajQ0&utm_source=qr" target="_blank" rel="noopener noreferrer" class="contacts_link_button"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
                     <a href="https://www.facebook.com/GILapartments?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="contacts_link_button"><i class="fab fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>
-                    <a href="../index.html" class="contacts_link_button" data-i18n="pages.contacts.aboutUs">Про нас</a>
+                    <a href="AboutUs.html" class="contacts_link_button" data-i18n="pages.contacts.aboutUs">Про нас</a>
                 </div>
             </section>
         </section>

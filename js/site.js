@@ -123,7 +123,13 @@ const STATIC_COPY = {
             facebook: "Facebook",
             telegram: "Telegram",
             AboutUs: "Про нас",
-            phoneValue: "+38 (050) 000 00 00",
+            phoneValue: [
+                "+38 (050) 941-61-95",
+                "+38 (097) 903-62-25",
+                "+38 (093) 170-41-79",
+                "+38 (099) 499-33-99",
+                "+38 (068) 499-33-99"
+            ],
             emailValue: "gil.apartments@example.com",
             copyright: "© 2026 G.I.L Apartments. Усі права захищено.",
             madeBy: "Сайт створено Глєбом та Кирилом - веброзробниками з Ужгорода."
@@ -150,7 +156,13 @@ const STATIC_COPY = {
             facebook: "Facebook",
             telegram: "Telegram",
             AboutUs: "About Us",
-            phoneValue: "+38 (050) 000 00 00",
+            phoneValue: [
+                "+38 (050) 941-61-95",
+                "+38 (097) 903-62-25",
+                "+38 (093) 170-41-79",
+                "+38 (099) 499-33-99",
+                "+38 (068) 499-33-99"
+            ],
             emailValue: "gil.apartments@example.com",
             copyright: "© 2026 G.I.L Apartments. All rights reserved.",
             madeBy: "Website created by Gleb and Kirill - web developers from Uzhhorod."
@@ -290,15 +302,29 @@ const formatBeds = (beds, lang = getCurrentLang()) =>
     translateKey("common.beds", { lng: lang, count: beds });
 
 const APARTMENT_FEATURE_DEFINITIONS = [
-    { key: "microwave", icon: "" },
+    { key: "microwave", iconClass: "fas fa-utensils" },
     { key: "air_conditioner", iconClass: "fas fa-snowflake" },
-    { key: "near_supermarket", iconClass:"fas fa-store" },
+    { key: "near_supermarket", iconClass: "fas fa-store" },
     { key: "smart_tv", iconClass: "fas fa-tv" },
     { key: "balcony", iconClass: "fas fa-door-open" },
     { key: "gas_hob", iconClass: "fas fa-fire" },
     { key: "electro_hob", iconClass: "fas fa-bolt" },
     { key: "parking", iconClass: "fas fa-parking" },
-    { key: "intercom", iconClass: "fas fa-bell" }
+    { key: "intercom", iconClass: "fas fa-bell" },
+    { key: "washing_machine", iconClass: "fas fa-tshirt" },
+    { key: "refrigerator", iconClass: "fas fa-snowflake" },
+    { key: "hot_water", iconClass: "fas fa-tint" },
+    { key: "internet", iconClass: "fas fa-wifi" },
+    { key: "wifi", iconClass: "fas fa-wifi" },
+    { key: "coded_entry", iconClass: "fas fa-bell" },
+    { key: "fridge", iconClass: "fas fa-snowflake" },
+    { key: "good_transport", iconClass: "fas fa-bus" },
+    { key: "satellite_tv", iconClass: "fas fa-tv" },
+    { key: "tv", iconClass: "fas fa-tv" },
+    { key: "cable_tv", iconClass: "fas fa-tv" },
+    { key: "t2_tv", iconClass: "fas fa-tv" },
+    { key: "secure_parking", iconClass: "fas fa-parking" },
+    { key: "hob", iconClass: "fas fa-fire" }
 ];
 
 const getFeatureDefinition = (featureKey) =>
@@ -366,7 +392,7 @@ const buildHeaderMarkup = (page) => {
     const preservedParams = getPreservedParamsForPage(page);
     const currentPaths = SITE_CONFIG[lang].paths;
 
-    const items = ["main", "map", "booking", "contacts"]
+    const items = ["main", "map", "booking", "contacts", "about"]
         .map((key) => {
             const className = key === page ? "navigation_current" : "navigation";
             const href =
@@ -379,6 +405,18 @@ const buildHeaderMarkup = (page) => {
                     <a href="${href}" data-i18n="nav.${key}"></a>
                 </div>
             `;
+        })
+        .join("");
+
+    const mobileLinks = ["main", "map", "booking", "contacts", "about"]
+        .map((key) => {
+            const isActive = key === page;
+            const href =
+                isActive
+                    ? "#"
+                    : getPageUrlWithCurrentParams(currentPaths[key] || currentPaths.main, preservedParams);
+
+            return `<a class="mobile_menu_link${isActive ? " is-active" : ""}" href="${href}" data-i18n="nav.${key}"></a>`;
         })
         .join("");
 
@@ -396,13 +434,98 @@ const buildHeaderMarkup = (page) => {
                 </div>
             </div>
         </header>
+
+        <div class="mobile_menu" data-mobile-menu>
+            <button class="mobile_menu_toggle" type="button" aria-expanded="false" aria-controls="mobileMenuPanel" data-mobile-menu-toggle>
+                <span class="mobile_menu_icon" aria-hidden="true"></span>
+                <span class="sr_only" data-i18n="common.actions.menu">Menu</span>
+            </button>
+            <nav class="mobile_menu_panel" id="mobileMenuPanel" data-mobile-menu-panel>
+                <div class="mobile_menu_header">
+                    <img class="mobile_menu_logo" src="${getAssetUrl("images/logo.png")}" alt="${translateKey("common.siteName", { lng: lang })}">
+                </div>
+                <div class="mobile_menu_links">
+                    ${mobileLinks}
+                </div>
+                <div class="mobile_menu_lang">
+                    <a href="${getPageUrlWithCurrentParams(SITE_CONFIG.en.paths[page] || SITE_CONFIG.en.paths.main, preservedParams)}" class="mobile_menu_lang_btn ${lang === "en" ? "is-active" : ""}" data-lang-choice="en">EN</a>
+                    <a href="${getPageUrlWithCurrentParams(SITE_CONFIG.uk.paths[page] || SITE_CONFIG.uk.paths.main, preservedParams)}" class="mobile_menu_lang_btn ${lang === "uk" ? "is-active" : ""}" data-lang-choice="uk">UA</a>
+                </div>
+            </nav>
+        </div>
     `;
+};
+
+const setupMobileMenu = (root) => {
+    const toggle = root?.querySelector("[data-mobile-menu-toggle]");
+    const panel = root?.querySelector("[data-mobile-menu-panel]");
+    if (!toggle || !panel) {
+        return;
+    }
+
+    const close = () => {
+        toggle.setAttribute("aria-expanded", "false");
+        panel.classList.remove("is-open");
+    };
+
+    const open = () => {
+        toggle.setAttribute("aria-expanded", "true");
+        panel.classList.add("is-open");
+    };
+
+    const isOpen = () => toggle.getAttribute("aria-expanded") === "true";
+
+    toggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (isOpen()) {
+            close();
+        } else {
+            open();
+        }
+    });
+
+    panel.addEventListener("click", (event) => {
+        const link = event.target?.closest?.("a");
+        if (link) {
+            close();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            close();
+        }
+    });
+
+    document.addEventListener("pointerdown", (event) => {
+        if (!isOpen()) {
+            return;
+        }
+
+        if (panel.contains(event.target) || toggle.contains(event.target)) {
+            return;
+        }
+
+        close();
+    });
 };
 
 const buildFooterMarkup = () => {
     const lang = getCurrentLang();
     const copy = getStaticCopy(lang).footer;
     const currentPaths = SITE_CONFIG[lang].paths;
+
+    const phones = Array.isArray(copy.phoneValue) ? copy.phoneValue : [copy.phoneValue];
+    const phoneListMarkup = phones
+        .map(
+            (phone) => `
+        <p class="footer__text footer__contact">
+            ${buildIconMarkup("fas fa-phone-alt", "footer__icon")}
+            <span>${phone}</span>
+        </p>
+    `
+        )
+        .join("");
 
     return `
         <footer class="footer">
@@ -414,10 +537,7 @@ const buildFooterMarkup = () => {
                 </div>
                 <div class="footer__section">
                     <h3 class="footer__title">${copy.contactsTitle}</h3>
-                    <p class="footer__text footer__contact">
-                        ${buildIconMarkup("fas fa-phone-alt", "footer__icon")}
-                        <span>${copy.phoneValue}</span>
-                    </p>
+                    ${phoneListMarkup}
                     <p class="footer__text footer__contact">
                         ${buildIconMarkup("fas fa-envelope", "footer__icon")}
                         <span>${copy.emailValue}</span>
@@ -433,13 +553,13 @@ const buildFooterMarkup = () => {
                     <a href="${getPageUrl(currentPaths.map)}" class="footer__link" data-i18n="nav.map"></a>
                     <a href="${getPageUrl(currentPaths.booking)}" class="footer__link" data-i18n="nav.booking"></a>
                     <a href="${getPageUrl(currentPaths.contacts)}" class="footer__link" data-i18n="nav.contacts"></a>
+                    <a href="${getPageUrl(currentPaths.about)}" class="footer__link">${buildInfoMarkup(copy.AboutUs, "fas fa-info-circle", { iconClassName: "footer__icon" })}</a>
                 </div>
                 <div class="footer__section">
                     <h3 class="footer__title">${copy.socialTitle}</h3>
                     <a href="https://www.instagram.com/kvartiry_posutochno_uzhgorod?igsh=cXA0dHdmbWFrajQ0&utm_source=qr" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.instagram, "fab fa-instagram", { iconClassName: "footer__icon" })}</a>
                     <a href="https://www.facebook.com/GILapartments?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.facebook, "fab fa-facebook-f", { iconClassName: "footer__icon" })}</a>
                     <a href="https://t.me/GIL_Apartments_Bot" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.telegram, "fab fa-telegram-plane", { iconClassName: "footer__icon" })}</a>
-                    <a href="${getPageUrl(currentPaths.about)}" class="footer__link">${buildInfoMarkup(copy.AboutUs, "fas fa-info-circle", { iconClassName: "footer__icon" })}</a>
                 </div>
             </div>
             <div class="footer__bottom">
@@ -459,6 +579,7 @@ const mountSiteHeader = () => {
     const page = document.body?.dataset.page || "main";
     headerRoot.innerHTML = buildHeaderMarkup(page);
     window.translatePage?.(headerRoot);
+    setupMobileMenu(headerRoot);
 
     headerRoot.querySelectorAll("[data-lang-choice]").forEach((link) => {
         link.addEventListener("click", () => {

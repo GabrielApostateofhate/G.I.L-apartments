@@ -18,6 +18,7 @@ const TRANSLATIONS = {
                 reset: "Reset",
                 details: "Details",
                 send: "Send",
+                back: "Back",
                 openTelegram: "Open in Telegram"
             }
         },
@@ -26,6 +27,7 @@ const TRANSLATIONS = {
             map: "Map",
             booking: "Booking",
             contacts: "Contacts",
+            about: "About Us",
             apartment: "Apartment",
         },
         features: {
@@ -37,8 +39,21 @@ const TRANSLATIONS = {
             parking: "Parking",
             intercom: "Code-entry building",
             gas_hob: "Gas cooktop",
-            electro_hob: "Electric cooktop"
-
+            electro_hob: "Electric cooktop",
+            washing_machine: "Washing machine",
+            refrigerator: "Refrigerator",
+            hot_water: "Hot water",
+            internet: "Internet",
+            wifi: "Wi-Fi",
+            coded_entry: "Coded entry building",
+            fridge: "Refrigerator",
+            good_transport: "Good transport access",
+            satellite_tv: "Satellite TV",
+            tv: "TV",
+            cable_tv: "Cable TV",
+            t2_tv: "T2 TV",
+            secure_parking: "Secure parking",
+            hob: "Gas cooktop"
         },
         pages: {
             main: {
@@ -123,6 +138,7 @@ const TRANSLATIONS = {
                 location: "Location",
                 locationValue: "Uzhhorod, Zakarpattia region",
                 writeUs: "Write to us",
+                showPhones: "Show all numbers",
                 placeholderName: "Name",
                 placeholderEmail: "Email",
                 placeholderMessage: "Your message",
@@ -154,6 +170,7 @@ const TRANSLATIONS = {
                 reset: "Скинути",
                 details: "Детальніше",
                 send: "Надіслати",
+                back: "Назад",
                 openTelegram: "Перейти в Telegram"
             }
         },
@@ -162,19 +179,33 @@ const TRANSLATIONS = {
             map: "Мапа",
             booking: "Бронювання",
             contacts: "Контакти",
+            about: "Про нас",
             apartment: "Квартира",
         },
         features: {
             microwave: "Мікрохвильова піч",
             air_conditioner: "Кондиціонер",
-            near_supermarket: "Поряд магазин",
+            near_supermarket: "Поруч магазин",
             smart_tv: "Smart TV",
             balcony: "Балкон",
             gas_hob: "Газова плита",
             electro_hob: "Електрична плита",
             parking: "Парковка",
             intercom: "Домофон",
-
+            washing_machine: "Пральна машина",
+            refrigerator: "Холодильник",
+            fridge: "Холодильник",
+            hot_water: "Гаряча вода",
+            internet: "Інтернет",
+            wifi: "Wi-Fi",
+            coded_entry: "Під'їзд на коді",
+            good_transport: "Зручна розв'язка",
+            satellite_tv: "Супутникове ТБ",
+            tv: "Телевізор",
+            cable_tv: "Кабельне ТБ",
+            t2_tv: "ТБ T2",
+            secure_parking: "Парковка під охороною",
+            hob: "Варильна поверхня"
         },
         pages: {
             main: {
@@ -258,6 +289,7 @@ const TRANSLATIONS = {
                 location: "Адреса",
                 locationValue: "Ужгород, Закарпатська область",
                 writeUs: "Написати нам",
+                showPhones: "Показати всі номери",
                 placeholderName: "Ім’я",
                 placeholderEmail: "Email",
                 placeholderMessage: "Ваше повідомлення",

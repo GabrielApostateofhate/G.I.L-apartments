@@ -35,9 +35,9 @@
     <meta name="geo.placename" content="Ужгород">
     <meta name="geo.position" content="48.6208;22.2879">
     <meta name="ICBM" content="48.6208, 22.2879">
-    <link rel="icon" type="image/jpeg" href="../images/logo.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="../images/logo.jpg">
-    <link rel="apple-touch-icon" href="../images/logo.jpg">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="shortcut icon" type="image/png" href="../images/logo.png">
+    <link rel="apple-touch-icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/appartments.css">
@@ -71,6 +71,9 @@
 <body data-page="apartment" data-title-key="pages.apartment.loading">
     <div data-site-header></div>
     <main class="appartment_details" id="appartmentDetails">
+        <div class="page_actions_mobile">
+            <a href="../index.html" class="back_link"><i class="fas fa-arrow-left"></i> <span data-i18n="common.actions.back">Назад</span></a>
+        </div>
         <section class="apartment_page">
             <div class="gallery">
                 <div class="thumbs"></div>
@@ -79,25 +82,27 @@
                 </div>
             </div>
 
-            <aside class="apartment_info">
-                <h1 id="title"></h1>
-                <div class="apartment_meta">
-                    <p id="rooms"></p>
-                    <p id="beds"></p>
-                </div>
-                <div class="price" id="price"></div>
-                <a href="booking.html" class="rent_btn" target="_blank"></a>
-            </aside>
+            <div class="apartment_sidebar">
+                <aside class="apartment_info">
+                    <h1 id="title"></h1>
+                    <div class="apartment_meta">
+                        <p id="rooms"></p>
+                        <p id="beds"></p>
+                    </div>
+                    <div class="price" id="price"></div>
+                    <a href="booking.html" class="rent_btn" target="_blank"></a>
+                </aside>
+
+                <section class="apartment_features_panel" id="apartmentFeaturesBox">
+                    <h2 data-i18n="pages.apartment.amenities"></h2>
+                    <div class="apartment_features" id="apartmentFeatures"></div>
+                </section>
+            </div>
 
             <article class="description_box">
                 <h2 data-i18n="pages.apartment.description"></h2>
                 <p id="description"></p>
             </article>
-
-            <section class="apartment_features_panel" id="apartmentFeaturesBox">
-                <h2 data-i18n="pages.apartment.amenities"></h2>
-                <div class="apartment_features" id="apartmentFeatures"></div>
-            </section>
 
             <section class="map_box">
                 <h2 data-i18n="pages.apartment.location"></h2>
