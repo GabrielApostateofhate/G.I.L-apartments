@@ -49,6 +49,21 @@ const createGalleryViewer = (gallery, apartmentTitle, imageElement) => {
     overlay.querySelector(".gallery_viewer_prev").addEventListener("click", () => step(-1));
     overlay.querySelector(".gallery_viewer_next").addEventListener("click", () => step(1));
 
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    overlay.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    overlay.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        if (Math.abs(diff) > 50) {
+            step(diff > 0 ? -1 : 1);
+        }
+    }, { passive: true });
+
     document.addEventListener("keydown", (event) => {
         if (overlay.hidden) {
             return;
@@ -153,13 +168,17 @@ const initApartmentPage = () => {
         if (image) {
             image.src = mainImageSrc;
             image.alt = apartmentTitle;
+            image.onerror = () => {
+                image.src = window.getAssetUrl("images/logo.png");
+                image.classList.add("is-fallback");
+            };
             image.addEventListener("click", () => galleryViewer.open(0));
         }
 
         const thumbsContainer = document.querySelector(".thumbs");
         if (thumbsContainer) {
             thumbsContainer.innerHTML = "";
-            const visibleGallery = gallery.length > 4 ? gallery.slice(0, 3) : gallery;
+            const visibleGallery = gallery.length > 5 ? gallery.slice(0, 4) : gallery;
 
             visibleGallery.forEach((galleryImage, index) => {
                 const img = document.createElement("img");
@@ -168,6 +187,9 @@ const initApartmentPage = () => {
                 img.alt = apartmentTitle;
                 img.className = "thumb_image";
                 img.loading = "lazy";
+                img.onerror = () => {
+                    img.src = window.getAssetUrl("images/logo.png");
+                };
                 img.addEventListener("click", () => {
                     if (image) {
                         image.src = src;
@@ -177,12 +199,12 @@ const initApartmentPage = () => {
                 thumbsContainer.appendChild(img);
             });
 
-            if (gallery.length > 4) {
+            if (gallery.length > 5) {
                 const moreButton = document.createElement("button");
                 moreButton.type = "button";
                 moreButton.className = "thumb_more";
-                moreButton.textContent = `+${gallery.length - 3}`;
-                moreButton.addEventListener("click", () => galleryViewer.open(3));
+                moreButton.textContent = `+${gallery.length - 4}`;
+                moreButton.addEventListener("click", () => galleryViewer.open(4));
                 thumbsContainer.appendChild(moreButton);
             }
         }
