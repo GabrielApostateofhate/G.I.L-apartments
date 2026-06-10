@@ -1,4 +1,4 @@
-window.APARTMENTS_DATA = [
+﻿window.APARTMENTS_DATA = [
   {
     "_id": "69d49d5bd8810233ba1da2c1",
     "external_id": 180,
@@ -38,7 +38,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/42",
       "en": "St. Mukachivska 77/42"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-29",
+    "checkOutDate": "2026-05-31"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c2",
@@ -83,7 +86,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/43",
       "en": "St. Mukachivska 77/43"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-17",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c3",
@@ -128,7 +134,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "пл.Ш. Петефі 8а5а",
       "en": "Square Sh. Petefi 8a5a"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c4",
@@ -174,7 +183,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "Проспект Свободи 20",
       "en": "20 Svoboda Avenue"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-30",
+    "checkOutDate": "2026-06-03"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c5",
@@ -222,7 +234,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Лермонтова 1",
       "en": "St. Lermontova 1"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-23"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c6",
@@ -272,7 +287,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Корзо 7",
       "en": "St. Corso 7"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-19",
+    "checkOutDate": "2026-05-22"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c7",
@@ -320,7 +338,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Корзо 7",
       "en": "St. Corso 7"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-25",
+    "checkOutDate": "2026-05-28"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c8",
@@ -366,7 +387,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Корзо 7",
       "en": "St. Corso 7"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-23",
+    "checkOutDate": "2026-05-26"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c9",
@@ -410,7 +434,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "пл. Богдана Хмельницького",
       "en": "sq. Bohdan Khmelnytskyi"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-25",
+    "checkOutDate": "2026-05-27"
   },
   {
     "_id": "69d49d5bd8810233ba1da2ca",
@@ -453,7 +480,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/41",
       "en": "St. Mukachivska 77/41"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-06-01",
+    "checkOutDate": "2026-06-05"
   },
   {
     "_id": "69d49d5bd8810233ba1da2cb",
@@ -504,7 +534,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Минайська 18г",
       "en": "St. Minayska 18"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-23",
+    "checkOutDate": "2026-05-25"
   },
   {
     "_id": "69d49d5bd8810233ba1da2cc",
@@ -556,7 +589,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/22",
       "en": "St. Mukachivska 77/22"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-16",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5bd8810233ba1da2cd",
@@ -603,7 +639,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/01",
       "en": "St. Mukachivska 77/01"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-06-01",
+    "checkOutDate": "2026-06-05"
   },
   {
     "_id": "69d49d5bd8810233ba1da2ce",
@@ -646,7 +685,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/02",
       "en": "St. Mukachivska 77/02"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-15",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5bd8810233ba1da2cf",
@@ -691,7 +733,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/44",
       "en": "St. Mukachivska 77/44"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-24"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d0",
@@ -742,7 +787,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Тлехаса 14",
       "en": "St. Tlejasa 14"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-29",
+    "checkOutDate": "2026-06-02"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d1",
@@ -798,7 +846,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Тлехаса 14",
       "en": "St. Tlejasa 14"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d2",
@@ -855,7 +906,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "ул. Тлехаса 14",
       "en": "St. Tlejasa 14"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-21",
+    "checkOutDate": "2026-05-25"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d3",
@@ -907,7 +961,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "ул. Тлехаса 14",
       "en": "St. Tlejasa 14"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-06-01",
+    "checkOutDate": "2026-06-03"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d4",
@@ -957,7 +1014,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул Володимирська 90",
       "en": "90 Volodymyrska St"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-26",
+    "checkOutDate": "2026-06-01"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d5",
@@ -1010,7 +1070,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/21 з балконом",
       "en": "St. Mukachivska 77/21 with a balcony"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-30",
+    "checkOutDate": "2026-06-02"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d6",
@@ -1059,7 +1122,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Тобілевича 13",
       "en": "St. Tobilevicha 13"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d7",
@@ -1109,7 +1175,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Тлехаса, 14",
       "en": "St. Tlejasa, 14"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-16",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d8",
@@ -1155,7 +1224,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/23  з балконом",
       "en": "St. Mukachivska 77/23 with a balcony"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-28",
+    "checkOutDate": "2026-05-30"
   },
   {
     "_id": "69d49d5cd8810233ba1da2d9",
@@ -1203,7 +1275,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Тлехаса 18",
       "en": "St. 18 Tlejasa"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-20",
+    "checkOutDate": "2026-05-25"
   },
   {
     "_id": "69d49d5cd8810233ba1da2da",
@@ -1248,7 +1323,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "пл. Ш.Петефі 8а/5",
       "en": "sq. Sh. Petefi 8a/5"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-21",
+    "checkOutDate": "2026-05-26"
   },
   {
     "_id": "69d49d5cd8810233ba1da2db",
@@ -1302,7 +1380,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Тобілевича 13",
       "en": "St. Tobilevicha 13"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5cd8810233ba1da2dc",
@@ -1352,7 +1433,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Собранецька 160/120",
       "en": "St. Sobranetska 160/120"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-27",
+    "checkOutDate": "2026-05-31"
   },
   {
     "_id": "69d49d5cd8810233ba1da2dd",
@@ -1396,7 +1480,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/33  з мансардним вікном і балконом",
       "en": "St. Mukachivska 77/33 with a skylight and a balcony"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-16",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5cd8810233ba1da2de",
@@ -1442,7 +1529,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Собранецька 160/155",
       "en": "St. Sobranetska 160/155"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-29",
+    "checkOutDate": "2026-06-03"
   },
   {
     "_id": "69d49d5cd8810233ba1da2df",
@@ -1492,7 +1582,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул Одеська 5/17",
       "en": "5/17 Odesa St"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-19",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e0",
@@ -1545,7 +1638,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "Проспект Свободи 5",
       "en": "Svoboda Avenue 5"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-22",
+    "checkOutDate": "2026-05-25"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e1",
@@ -1597,7 +1693,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Собранецька 160/163",
       "en": "St. Sobranetska 160/163"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-16",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e2",
@@ -1651,7 +1750,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул Минайська 3",
       "en": "Minayska St. 3"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-16",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e3",
@@ -1690,15 +1792,18 @@ window.APARTMENTS_DATA = [
     "guests": 5,
     "img": "images/168.jpg",
     "is_available": true,
-    "lat": 22.264416,
-    "lng": 48.614097,
+        "lat": 48.614097,
+        "lng": 22.264416,
     "price": 2100,
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/168/",
     "title": {
       "uk": "вул. Володимирська 90",
       "en": "St. Volodymyrska 90"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-15",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e4",
@@ -1747,7 +1852,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Корзо 7",
       "en": "St. Corso 7"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-24",
+    "checkOutDate": "2026-05-28"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e5",
@@ -1797,7 +1905,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Минайська 18г",
       "en": "St. Minayska 18"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-25",
+    "checkOutDate": "2026-05-27"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e6",
@@ -1841,7 +1952,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Минайська 18г",
       "en": "St. Minayska 18"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-06-01",
+    "checkOutDate": "2026-06-03"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e7",
@@ -1894,7 +2008,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Добрянського 4",
       "en": "St. Dobryansky 4"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-15",
+    "checkOutDate": "2026-05-17"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e8",
@@ -1946,7 +2063,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул Володимирська 90/246",
       "en": "90/246 Volodymyrska St"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-28",
+    "checkOutDate": "2026-05-30"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e9",
@@ -2000,7 +2120,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/112",
       "en": "St. Mukachivska 77/112"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-06-03",
+    "checkOutDate": "2026-06-09"
   },
   {
     "_id": "69d49d5cd8810233ba1da2ea",
@@ -2055,7 +2178,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Мукачівська 77/111",
       "en": "St. Mukachivska 77/111"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-24",
+    "checkOutDate": "2026-05-27"
   },
   {
     "_id": "69d49d5cd8810233ba1da2ec",
@@ -2109,7 +2235,10 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Минайська 12",
       "en": "St. Minayska 12"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-27",
+    "checkOutDate": "2026-05-29"
   },
   {
     "_id": "69d49d5cd8810233ba1da2ed",
@@ -2157,7 +2286,11 @@ window.APARTMENTS_DATA = [
     "title": {
       "uk": "вул. Минайська 18Г",
       "en": "St. Minayska 18G"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-22",
+    "checkOutDate": "2026-05-24"
   }
 ]
 ;
+
